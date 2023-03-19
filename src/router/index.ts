@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
+import authorizationModule from "@/modules/authorization/router/index";
+
 const routes: Array<RouteRecordRaw> = [
+    ...authorizationModule,
 ];
 
 const router = createRouter({
