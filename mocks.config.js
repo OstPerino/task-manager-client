@@ -4,7 +4,7 @@
 
 module.exports = {
   // Log level. Can be one of silly, debug, verbose, info, warn or error
-  //log: "info",
+  log: "silly",
   config: {
     // Allow unknown arguments
     //allowUnknownArguments: false,
@@ -50,7 +50,7 @@ module.exports = {
     },
     collections: {
       // Selected collection
-      //selected: "base",
+      selected: "base",
     },
   },
   server: {
