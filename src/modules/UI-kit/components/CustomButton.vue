@@ -14,6 +14,12 @@ const onClickHandler = () => {
 
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 </style>

@@ -57,6 +57,7 @@ const onInputHandler = (event: InputEvent) => {
     border-bottom: 1px solid #8B8B8B;
     font-size: 14px;
     padding: 14px 0;
+    width: 100%;
 
     &:focus ~ .label {
       top: -18px;

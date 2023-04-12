@@ -5,7 +5,8 @@
       "projects-get:success",
       "project-get:success",
       "register-post:success",
-      "login-post:success"
+      "login-post:success",
+      "check-auth-get:success"
     ]
   },
   {
@@ -13,7 +14,8 @@
     "from": "base",
     "routes": [
       "register-post:error",
-      "login-post:error"
+      "login-post:error",
+      "check-auth:error"
     ]
   }
 ]

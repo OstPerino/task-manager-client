@@ -11,26 +11,30 @@ export interface RegistrationData {
   email: string;
 }
 
-interface LoginResponseSuccess {
-  token: string;
-}
 
-interface LoginResponseError {
-  message: string;
-}
-
-interface RegistrationResponseSuccess {
-  message: string;
-}
-
-interface RegistrationResponseError {
-  message: string;
-}
-
-export type LoginResponse = AxiosResponse<
-  LoginResponseSuccess | LoginResponseError
->;
-
-export type RegistrationResponse = AxiosResponse<
-  RegistrationResponseSuccess | RegistrationResponseError
->;
+// interface LoginResponseSuccess {
+//   token: string;
+//   firstName: string;
+//   lastName: string;
+//   email: string;
+// }
+//
+// interface LoginResponseError {
+//   message: string;
+// }
+//
+// interface RegistrationResponseSuccess {
+//   message: string;
+// }
+//
+// interface RegistrationResponseError {
+//   message: string;
+// }
+//
+// export type LoginResponse = AxiosResponse<
+//   LoginResponseSuccess | LoginResponseError
+// >;
+//
+// export type RegistrationResponse = AxiosResponse<
+//   RegistrationResponseSuccess | RegistrationResponseError
+// >;

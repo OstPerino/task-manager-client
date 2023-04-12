@@ -3,14 +3,18 @@ import endPoints from "@/modules/authorization/services/endPoints";
 import {
   AuthorizationData,
   RegistrationData,
-  LoginResponse,
-  RegistrationResponse,
+  // LoginResponse,
+  // RegistrationResponse,
 } from "@/modules/authorization/services/types";
 
-export async function login(data: AuthorizationData): Promise<LoginResponse> {
+export async function login(data: AuthorizationData) {
   return $api.post(endPoints.login, data);
 }
 
-export async function registration(data: RegistrationData): Promise<RegistrationResponse> {
+export async function registration(data: RegistrationData) {
   return $api.post(endPoints.registration, data);
+}
+
+export async function checkUser() {
+  return $api.get(endPoints.checkUser);
 }

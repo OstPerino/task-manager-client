@@ -1,8 +1,8 @@
 module.exports = [
   {
-    id: "login-post",
-    method: "POST",
-    url: "/api/auth/login",
+    id: "check-auth-get",
+    method: "GET",
+    url: "/api/auth/check",
     variants: [
       {
         id: "success",
@@ -10,7 +10,7 @@ module.exports = [
         options: {
           status: 200,
           body: {
-            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             firstName: "Nikita",
             lastName: "Kucenko",
             email: "kucenko.nikita@gmail.com"
@@ -22,7 +22,7 @@ module.exports = [
         type: "json",
         options: {
           status: 401,
-          body: { message: "Неверное имя пользователя или пароль" },
+          body: { message: "Токен просрочен" },
         },
       },
     ],

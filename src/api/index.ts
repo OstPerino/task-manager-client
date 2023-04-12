@@ -5,7 +5,7 @@ const MOCK_URL = `http://${process.env.VUE_APP_MOCK_DOMAIN}:${process.env.VUE_AP
 
 const $api = axios.create({
     baseURL: MOCK_URL,
-    withCredentials: true,
+    // withCredentials: true,
 })
 
 $api.interceptors.request.use((config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {

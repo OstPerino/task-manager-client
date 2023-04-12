@@ -1,5 +1,6 @@
 
 export default {
     login: "/auth/login",
-    registration: "/auth/registration"
+    registration: "/auth/registration",
+    checkUser: "/auth/check"
 }
