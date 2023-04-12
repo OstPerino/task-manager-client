@@ -60,9 +60,9 @@ module.exports = {
     //host: "0.0.0.0",
     cors: {
       // Use CORS middleware or not
-      //enabled: true,
+      enabled: true,
       // Options for the CORS middleware. Further information at https://github.com/expressjs/cors#configuration-options
-      //options: {"preflightContinue":false},
+      // options: {"preflightContinue":true},
     },
     jsonBodyParser: {
       // Use json body-parser middleware or not

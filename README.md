@@ -1,24 +1,50 @@
-# task-manager-client
+# Vue 3 Task Manager Client
+This is a task manager client application built with Vue 3 and TypeScript.
 
-## Project setup
-```
+## Installation
+To install the application, simply run:
+
+```bash
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
+## Usage
+To run the application in development mode, run:
+
+```bash
 npm run serve
 ```
+This will start the development server and open the application in your default browser.
 
-### Compiles and minifies for production
-```
+To build the application for production, run:
+
+```bash
 npm run build
 ```
+This will create a production-ready build of the application in the dist directory.
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Features
+* Add, edit, and delete tasks
+* Mark tasks as complete
+* Filter tasks by status
+* Sort tasks by various criteria
+* Responsive design for mobile and desktop
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Technologies Used
+* Vue 3
+* TypeScript
+* Vue Router
+* Vuex
+* Axios
+
+## Contributing
+Contributions are welcome! If you find a bug or have a feature request, please open an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Credits
+This project was created by Nikita Kucenko.
+
+
+
