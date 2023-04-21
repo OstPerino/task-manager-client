@@ -6,5 +6,5 @@ export default [
     component: MainPage,
     path: "/main",
     meta: { requires: true },
-  }
+  },
 ];

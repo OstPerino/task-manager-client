@@ -10,12 +10,18 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
     "axios": "^1.3.4",
     "cypress": "^12.8.1",
     "pinia": "^2.0.33",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vue3-toastify": "^0.1.7"
   },
   "devDependencies": {
     "@mocks-server/main": "^4.0.0",

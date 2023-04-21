@@ -2,14 +2,14 @@ import AuthorizationPage from "@/modules/authorization/views/AuthorizationPage.v
 import RegistrationPage from "@/modules/authorization/views/RegistrationPage.vue";
 
 export default [
-    {
-        name: "Authorization",
-        component: AuthorizationPage,
-        path: "/auth"
-    },
-    {
-        name: "Registration",
-        component: RegistrationPage,
-        path: "/registration"
-    }
-]
+  {
+    name: "Authorization",
+    component: AuthorizationPage,
+    path: "/auth",
+  },
+  {
+    name: "Registration",
+    component: RegistrationPage,
+    path: "/registration",
+  },
+];

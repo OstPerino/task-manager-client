@@ -5,13 +5,11 @@
 </template>
 
 <script setup lang="ts">
-
-const emit = defineEmits(['click'])
+const emit = defineEmits(["click"]);
 
 const onClickHandler = () => {
-  emit('click');
-}
-
+  emit("click");
+};
 </script>
 
 <style scoped lang="scss">

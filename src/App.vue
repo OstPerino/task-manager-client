@@ -1,14 +1,20 @@
 <template>
-  <div class="main">
+  <SideBar class="sidebar" v-if="showSidebar" />
+  <main class="main">
     <router-view />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import CustomInput from "@/modules/UI-kit/components/CustomInput.vue";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import SideBar from "@/modules/sidebar/components/SideBar.vue";
 
-const tempValue = ref<string>("");
+const route = useRoute();
+
+const showSidebar = computed(() => {
+  return route.meta.requires;
+});
 </script>
 
 <style lang="scss">

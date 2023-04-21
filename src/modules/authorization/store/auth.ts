@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
-import {checkUser} from "@/modules/authorization/services";
+import { checkUser } from "@/modules/authorization/services";
 
 interface AuthState {
-    token: string;
-    email: string;
-    firstName: string;
-    lastName: string;
+  token: string;
+  email: string;
+  firstName: string;
+  lastName: string;
 }
 
 export const useAuthStore = defineStore("auth", {
@@ -29,16 +29,16 @@ export const useAuthStore = defineStore("auth", {
       this.email = "";
       this.firstName = "";
       this.lastName = "";
-      localStorage.removeItem('token');
+      localStorage.removeItem("token");
     },
     async checkUserState() {
       try {
         const response = await checkUser();
-        this.setAuthState(response.data)
+        this.setAuthState(response.data);
         return response.data;
       } catch (e: any) {
         return e;
       }
-    }
+    },
   },
 });

@@ -10,14 +10,39 @@
   box-sizing: border-box;
 }
 
+:root {
+  --black: #1B1A16;
+  --background-gray: #EAEDEF;
+  --middle-gray: #F2F4F6;
+  --space-gray: #F6F6F6;
+  --subtext-gray: #666365;
+  --blue: #287A9C;
+  --white: #ffffff;
+}
+
 #app {
   width: 100vw;
   height: 100vh;
   //font-family: 'Noto Sans', sans-serif;
   font-family: 'Rubik', sans-serif;
+  display: flex;
+  background-color: var(--background-gray);
 }
 
 .main {
   width: 100%;
   height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.router-link-active {
+  background: linear-gradient(270deg, #F2F4F6 0%, #FFFFFF 100%);
 }

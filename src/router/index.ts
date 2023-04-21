@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import authorizationModule from "@/modules/authorization/router/index";
 import mainPageModule from "@/modules/projects/router/index";
-import {useAuthStore} from "@/modules/authorization/store/auth";
+import { useAuthStore } from "@/modules/authorization/store/auth";
 
 const routes: Array<RouteRecordRaw> = [
   ...authorizationModule,
