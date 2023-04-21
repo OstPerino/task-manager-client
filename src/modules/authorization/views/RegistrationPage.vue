@@ -28,17 +28,17 @@
 
 <script setup lang="ts">
 import { reactive } from "vue";
-import { registration } from "@/modules/authorization/services";
+import { registration } from "@/modules/authorization/services/authorization.service";
 import CustomForm from "@/modules/UI-kit/components/CustomForm.vue";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import CustomInput from "@/modules/UI-kit/components/CustomInput.vue";
 import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
-import {RegistrationData} from "@/modules/authorization/services/types";
+import { RegistrationData } from "@/modules/authorization/services/types";
 
 const state = reactive<RegistrationData>({
   email: "",
   password: "",
-  username: ""
+  username: "",
 });
 
 const onSubmit = async () => {
@@ -46,7 +46,7 @@ const onSubmit = async () => {
     const response = await registration({
       username: state.username,
       password: state.password,
-      email: state.email
+      email: state.email,
     });
   } catch (e) {}
 };

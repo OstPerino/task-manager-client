@@ -54,7 +54,7 @@ const onInputHandler = (event: InputEvent) => {
 
   .input {
     border: none;
-    border-bottom: 1px solid #8B8B8B;
+    border-bottom: 1px solid #8b8b8b;
     font-size: 14px;
     padding: 14px 0;
     width: 100%;
@@ -71,7 +71,7 @@ const onInputHandler = (event: InputEvent) => {
     left: 0;
     transform: translateY(-50%);
     transition: all 0.2s ease;
-    color: #8B8B8B;
+    color: #8b8b8b;
 
     &.active {
       top: -14px;

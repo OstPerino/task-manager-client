@@ -1,7 +1,9 @@
 <template>
-  <div class="sidebar">
+  <li>
+    <div class="board-card">
 
-  </div>
+    </div>
+  </li>
 </template>
 
 <script setup lang="ts">

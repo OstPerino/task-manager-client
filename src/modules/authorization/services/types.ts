@@ -11,7 +11,6 @@ export interface RegistrationData {
   email: string;
 }
 
-
 // interface LoginResponseSuccess {
 //   token: string;
 //   firstName: string;

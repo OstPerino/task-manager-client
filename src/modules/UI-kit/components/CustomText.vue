@@ -1,20 +1,13 @@
 <template>
-  <span
-    class="custom-text"
-    :style="{ fontWeight: fontWeight, fontSize: fontSize, color: color }"
-  >
+  <span class="custom-text">
     <slot></slot>
   </span>
 </template>
 
 <script setup lang="ts">
 const props = defineProps({
-  // text: {
-  //   type: String,
-  //   required: true,
-  // },
   fontWeight: {
-    type: String,
+    type: Number,
     required: false,
     default: 400,
   },
@@ -31,4 +24,10 @@ const props = defineProps({
 });
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.custom-text {
+  font-weight: v-bind(fontWeight);
+  font-size: v-bind(fontSize);
+  color: v-bind(color);
+}
+</style>

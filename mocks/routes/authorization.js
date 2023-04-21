@@ -2,13 +2,13 @@ module.exports = [
   {
     id: "login-post",
     method: "POST",
-    url: "/api/auth/login",
+    url: "/api/auth/get",
     variants: [
       {
         id: "success",
         type: "json",
         options: {
-          status: 200,
+          status: 201,
           body: {
             token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             firstName: "Nikita",
