@@ -34,7 +34,7 @@ This will create a production-ready build of the application in the dist directo
 * Vue 3
 * TypeScript
 * Vue Router
-* Vuex
+* Pinia
 * Axios
 
 ## Contributing
