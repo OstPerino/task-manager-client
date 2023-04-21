@@ -1,5 +1,5 @@
 import $api from "@/api";
-import endPoints from "@/modules/authorization/services/endPoints";
+import endPoints from "@/modules/authorization/services/authorization.end-points";
 import {
   AuthorizationData,
   RegistrationData

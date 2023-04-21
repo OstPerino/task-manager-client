@@ -1,18 +1,54 @@
 const projects = [
   {
     id: 1,
-    name: "Project 1",
+    title: "Project 1",
     description: "Description 1",
+    boards: [
+      {
+        title: "Board 1",
+        description: "Description of board 1",
+        tasks: [
+          {
+            title: "Task 1",
+            description: "Task description"
+          }
+        ]
+      }
+    ]
   },
   {
     id: 2,
-    name: "Project 2",
+    title: "Project 2",
     description: "Description 2",
+    boards: [
+      {
+        title: "Board 1",
+        description: "Description of board 1",
+        tasks: [
+          {
+            title: "Task 1",
+            description: "Task description"
+          }
+        ]
+      }
+    ]
   },
   {
     id: 3,
-    name: "Project 3",
+    title: "Project 3",
     description: "Description 3",
+    boards: [
+      {
+        title: "Board 1",
+        description: "Description of board 1",
+        tasks: [
+          {
+            title: "Task 1",
+            description: "Task description"
+          }
+        ]
+      }
+    ]
   },
 ];
 

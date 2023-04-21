@@ -15,7 +15,7 @@
     "routes": [
       "register-post:error",
       "login-post:error",
-      "check-auth:error"
+      "check-auth-get:error"
     ]
   }
 ]

@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { checkUser } from "@/modules/authorization/services";
+import { checkUser } from "@/modules/authorization/services/authorization.service";
 
 interface AuthState {
   token: string;

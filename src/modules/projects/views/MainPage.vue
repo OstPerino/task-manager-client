@@ -1,33 +1,21 @@
 <template>
   <div class="main-page">
-
+    <ProjectsGrid :projects="store.projects" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { toast } from "vue3-toastify";
-import {onMounted} from "vue";
+import { useProjectsStore } from "@/modules/projects/store/projects";
+import ProjectsGrid from "@/modules/projects/components/ProjectsGrid.vue";
 
 const router = useRouter();
-const route = useRoute();
+const store = useProjectsStore();
 
-const showToast = () => {
-  toast.success("Toast");
-}
-
-// const test = async () => {
-//   try {
-//     const response = await axios.get('http://localhost:8000/api/projects/');
-//     console.log(response);
-//   } catch (e) {
-//     console.log(e);
-//   }
-// }
-
-// onMounted(async () => {
-//   await test();
-// })
+onMounted(async () => {
+  await store.setProjects();
+});
 </script>
 
 <style scoped lang="scss">

@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { reactive } from "vue";
-import { registration } from "@/modules/authorization/services";
+import { registration } from "@/modules/authorization/services/authorization.service";
 import CustomForm from "@/modules/UI-kit/components/CustomForm.vue";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import CustomInput from "@/modules/UI-kit/components/CustomInput.vue";

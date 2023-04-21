@@ -37,7 +37,7 @@ import { useRouter } from "vue-router";
 import { useAuthStore } from "@/modules/authorization/store/auth";
 import { onMounted, reactive } from "vue";
 
-import { login } from "@/modules/authorization/services";
+import { login } from "@/modules/authorization/services/authorization.service";
 import CustomForm from "@/modules/UI-kit/components/CustomForm.vue";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import CustomInput from "@/modules/UI-kit/components/CustomInput.vue";

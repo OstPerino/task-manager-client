@@ -1,12 +1,12 @@
 import $api from "@/api";
-import endPoints from "@/modules/projects/services/endPoints";
+import endPoints from "@/modules/projects/services/projects.end-points";
 
 // TODO: Добавить три мока для этих запросов
-export async function getPosts() {
+export async function getProjects() {
   return $api.get(endPoints.mainUrl);
 }
 
-export async function getOneProject(data: any) {
+export async function getProject(data: any) {
   return $api.get(`${endPoints.mainUrl}/${data.projectId}`);
 }
 
