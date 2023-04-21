@@ -50,6 +50,23 @@ const projects = [
       }
     ]
   },
+  {
+    id: 4,
+    title: "Project 4",
+    description: "Description 4",
+    boards: [
+      {
+        title: "Board 1",
+        description: "Description of board 1",
+        tasks: [
+          {
+            title: "Task 1",
+            description: "Task description"
+          }
+        ]
+      }
+    ]
+  },
 ];
 
 module.exports = [

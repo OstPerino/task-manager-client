@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 
-import NavBar from "@/modules/sidebar/components/NavBar.vue";
+import NavBar from "@/modules/layouts/components/NavBar.vue";
 </script>
 
 <style scoped>

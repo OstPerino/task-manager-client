@@ -1,6 +1,10 @@
 <template>
-  <ul>
-    <ProjectsCard v-for="project in projects" :project="project" />
+  <ul class="projects-grid">
+    <ProjectsCard
+      v-for="project in projects"
+      :project="project"
+      @click="onClickHandler"
+    />
   </ul>
 </template>
 
@@ -15,6 +19,16 @@ const props = defineProps({
     required: true,
   },
 });
+
+const onClickHandler = () => {
+  console.log('Route to project page')
+}
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 1rem;
+}
+</style>

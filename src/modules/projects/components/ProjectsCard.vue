@@ -1,5 +1,5 @@
 <template>
-  <li class="projects-card">
+  <li class="projects-card" @click="$emit('click')">
     <div class="top">
       <CustomText :font-weight="600">
         {{ project.title }}
@@ -37,5 +37,6 @@ const getCountOfBoards = computed(() => {
   width: 240px;
   height: 137px;
   background-color: var(--white);
+  cursor: pointer;
 }
 </style>
