@@ -1,5 +1,5 @@
 <template>
-  <li class="projects-card" @click="$emit('click')">
+  <li class="projects-card" @click="onClickHandler">
     <div class="top">
       <CustomText :font-weight="600">
         {{ project.title }}
@@ -20,6 +20,8 @@ import type { PropType } from "vue";
 import { Project } from "@/modules/projects/services/types";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 
+const emit = defineEmits(["click"])
+
 const props = defineProps({
   project: {
     type: Object as PropType<Project>,
@@ -30,6 +32,10 @@ const props = defineProps({
 const getCountOfBoards = computed(() => {
   return props.project.boards.length;
 });
+
+const onClickHandler = () => {
+  emit("click", props.project.id)
+}
 </script>
 
 <style scoped lang="scss">

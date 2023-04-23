@@ -9,7 +9,7 @@ module.exports = [
         type: "json",
         options: {
           status: 200,
-          body: { message: "User registered successfully" }, // Replace with your desired success response
+          body: { message: "User registered successfully" },
         },
       },
       {
@@ -17,7 +17,7 @@ module.exports = [
         type: "json",
         options: {
           status: 400,
-          body: { message: "Invalid registration data" }, // Replace with your desired error response
+          body: { message: "Invalid registration data" },
         },
       },
     ],

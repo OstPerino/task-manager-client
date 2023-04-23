@@ -1,9 +1,7 @@
 <template>
-  <li>
-    <div class="board-card">
+  <div class="chats-page">
 
-    </div>
-  </li>
+  </div>
 </template>
 
 <script setup lang="ts">

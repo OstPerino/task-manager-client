@@ -2,7 +2,7 @@
   <div class="authorization-page">
     <CustomForm>
       <template #header>
-        <CustomText font-size="32px" font-weight="700">
+        <CustomText font-size="32px" :font-weight="700">
           Авторизация
         </CustomText>
       </template>
