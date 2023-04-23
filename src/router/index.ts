@@ -1,12 +1,16 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
+import { useAuthStore } from "@/modules/authorization/store/auth";
 import authorizationModule from "@/modules/authorization/router/index";
 import mainPageModule from "@/modules/projects/router/index";
-import { useAuthStore } from "@/modules/authorization/store/auth";
+import chatsModule from "@/modules/chats/router/index";
+import boardsModule from "@/modules/boards/router/index";
 
 const routes: Array<RouteRecordRaw> = [
   ...authorizationModule,
   ...mainPageModule,
+  ...chatsModule,
+  ...boardsModule,
   { path: "/:catchAll(.*)", redirect: "/auth" },
 ];
 

@@ -6,7 +6,8 @@
       "project-get:success",
       "register-post:success",
       "login-post:success",
-      "check-auth-get:success"
+      "check-auth-get:success",
+      "boards-get:success"
     ]
   },
   {

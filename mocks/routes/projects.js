@@ -5,6 +5,7 @@ const projects = [
     description: "Description 1",
     boards: [
       {
+        id: 1,
         title: "Board 1",
         description: "Description of board 1",
         tasks: [
@@ -22,6 +23,7 @@ const projects = [
     description: "Description 2",
     boards: [
       {
+        id: 2,
         title: "Board 1",
         description: "Description of board 1",
         tasks: [
@@ -39,6 +41,7 @@ const projects = [
     description: "Description 3",
     boards: [
       {
+        id: 3,
         title: "Board 1",
         description: "Description of board 1",
         tasks: [
@@ -56,6 +59,7 @@ const projects = [
     description: "Description 4",
     boards: [
       {
+        id: 4,
         title: "Board 1",
         description: "Description of board 1",
         tasks: [

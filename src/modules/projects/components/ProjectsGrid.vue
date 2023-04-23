@@ -9,9 +9,12 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from "vue-router";
 import { Project } from "@/modules/projects/services/types";
 import { PropType } from "vue";
 import ProjectsCard from "@/modules/projects/components/ProjectsCard.vue";
+
+const router = useRouter();
 
 const props = defineProps({
   projects: {
@@ -20,9 +23,9 @@ const props = defineProps({
   },
 });
 
-const onClickHandler = () => {
-  console.log('Route to project page')
-}
+const onClickHandler = async (projectId: number) => {
+  await router.push({ path: `/main/${projectId}/boards` });
+};
 </script>
 
 <style scoped lang="scss">
