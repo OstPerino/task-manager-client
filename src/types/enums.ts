@@ -4,3 +4,9 @@ export enum TaskStatus {
   ACTIVE = "ACTIVE",
   DONE = "DONE"
 }
+
+export enum TaskPriority {
+  LOW = "LOW",
+  MID = "MID",
+  HIGH = "HIGH"
+}

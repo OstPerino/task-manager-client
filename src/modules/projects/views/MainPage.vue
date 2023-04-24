@@ -13,6 +13,10 @@ import ProjectsGrid from "@/modules/projects/components/ProjectsGrid.vue";
 const router = useRouter();
 const store = useProjectsStore();
 
+const pushBack = () => {
+
+}
+
 onMounted(async () => {
   await store.setProjects();
 });

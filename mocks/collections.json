@@ -7,7 +7,8 @@
       "register-post:success",
       "login-post:success",
       "check-auth-get:success",
-      "boards-get:success"
+      "boards-get:success",
+      "tasks-get:success"
     ]
   },
   {

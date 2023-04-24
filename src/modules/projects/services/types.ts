@@ -1,7 +1,4 @@
-
-export interface Task {
-  title: string;
-}
+import { Task } from "@/modules/tasks/types/types";
 
 export interface Project {
   id: number;

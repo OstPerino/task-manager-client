@@ -49,6 +49,7 @@ const links: Array<Link> = [
   background-color: var(--white);
   width: 340px;
   padding: 1rem 0 1rem 1rem;
+  border-radius: 12px;
 
   .link-list {
     display: flex;
