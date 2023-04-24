@@ -15,9 +15,10 @@ const onClickHandler = () => {
 <style scoped lang="scss">
 .button {
   padding: 10px 20px;
-  background-color: black;
-  color: white;
+  background-color: transparent;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 </style>

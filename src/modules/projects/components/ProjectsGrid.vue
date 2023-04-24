@@ -13,6 +13,7 @@ import { useRouter } from "vue-router";
 import { Project } from "@/modules/projects/services/types";
 import { PropType } from "vue";
 import ProjectsCard from "@/modules/projects/components/ProjectsCard.vue";
+import axios from "axios";
 
 const router = useRouter();
 

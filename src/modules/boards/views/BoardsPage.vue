@@ -13,6 +13,10 @@ import {onMounted, watchEffect} from "vue";
 const store = useBoardsStore();
 const route = useRoute();
 
+const pushBack = () => {
+
+}
+
 onMounted(async () => {
   await store.setBoards({ projectId: route.params.id });
 })
