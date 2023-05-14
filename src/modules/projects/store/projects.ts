@@ -1,5 +1,5 @@
-import { defineStore } from "pinia";
-import { getProjects } from "@/modules/projects/services/projects.service";
+import {defineStore} from "pinia";
+import {getProjects} from "@/modules/projects/services/projects.service";
 
 export const useProjectsStore = defineStore("projects", {
   state: () => {
@@ -9,9 +9,14 @@ export const useProjectsStore = defineStore("projects", {
   },
   actions: {
     async setProjects() {
-      try { const response = await getProjects();
-        this.projects = response.data; }
-      catch (e: any) { return e.response; }
+      try {
+        const response = await getProjects();
+        this.projects = response.data;
+        console.log(response);
+      } catch (e: any) {
+        return e.response;
+        console.log(e);
+      }
     },
   },
 });

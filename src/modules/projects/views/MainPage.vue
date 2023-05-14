@@ -11,6 +11,8 @@ import { useRoute, useRouter } from "vue-router";
 import { useProjectsStore } from "@/modules/projects/store/projects";
 import ProjectsGrid from "@/modules/projects/components/ProjectsGrid.vue";
 import ProjectsList from "@/modules/projects/components/ProjectsList.vue";
+import $api from "@/api";
+import axios from "axios";
 
 const router = useRouter();
 const store = useProjectsStore();

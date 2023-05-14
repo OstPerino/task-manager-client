@@ -4,7 +4,7 @@ const SERVER_URL = `http://${process.env.VUE_APP_API_DOMAIN}:${process.env.VUE_A
 const MOCK_URL = `http://${process.env.VUE_APP_MOCK_DOMAIN}:${process.env.VUE_APP_MOCK_PORT}/api`;
 
 const $api = axios.create({
-  baseURL: MOCK_URL,
+  baseURL: SERVER_URL,
   // withCredentials: true,
 });
 
