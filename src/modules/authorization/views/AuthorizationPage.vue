@@ -2,29 +2,37 @@
   <div class="authorization-page">
     <CustomForm>
       <template #header>
-        <CustomText font-size="32px" :font-weight="700">
-          Авторизация
+        <CustomText font-size="17px" :font-weight="600" color="var(--text-tertiary)">
+          Авторизуйтесь в своём аккаунте
         </CustomText>
       </template>
       <template #actions>
         <CustomInput
-          v-model="state.email"
-          label-content="Email"
-          @input="state.email = $event"
-          class="input"
-          :style="{ marginBottom: '30px' }"
+            v-model="state.email"
+            label-content="Email"
+            class="input"
+            :style="{ marginBottom: '30px' }"
+            type="email"
         />
         <CustomInput
-          v-model="state.password"
-          label-content="Пароль"
-          @input="state.password = $event"
-          type="password"
-          class="input"
+            v-model="state.password"
+            label-content="Пароль"
+            type="password"
+            class="input"
         />
       </template>
+      <template #sub-message>
+        <CustomText color="var(--text-secondary)" :style="{ cursor: 'pointer' }">
+          <span>
+            Не помню пароль
+          </span>
+        </CustomText>
+      </template>
       <template #button>
-        <CustomButton @click="onSubmit" :style="{ width: '100%' }">
-          Войти
+        <CustomButton @click="onSubmit" :style="{ width: '100%' }" :is-disabled="isDisabled">
+          <CustomText :font-weight="600" font-size="17px" color="white">
+            Войти
+          </CustomText>
         </CustomButton>
       </template>
     </CustomForm>
@@ -32,16 +40,17 @@
 </template>
 
 <script setup lang="ts">
-import { AxiosError } from "axios";
-import { useRouter } from "vue-router";
-import { useAuthStore } from "@/modules/authorization/store/auth";
-import { onMounted, reactive } from "vue";
+import {AxiosError} from "axios";
+import {useRouter} from "vue-router";
+import {useAuthStore} from "@/modules/authorization/store/auth";
+import {onMounted, reactive, watchEffect} from "vue";
 
-import { login } from "@/modules/authorization/services/authorization.service";
+import {login} from "@/modules/authorization/services/authorization.service";
 import CustomForm from "@/modules/UI-kit/components/CustomForm.vue";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import CustomInput from "@/modules/UI-kit/components/CustomInput.vue";
 import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
+import {ref} from "@vue/runtime-core";
 
 const router = useRouter();
 const auth = useAuthStore();
@@ -51,9 +60,15 @@ const state = reactive({
   password: "",
 });
 
+const isDisabled = ref<Boolean>(false);
+
 const handleError = (error: AxiosError) => {
   console.log(error);
 };
+
+watchEffect(() => {
+  isDisabled.value = state.email === "" || state.password === "";
+})
 
 const onSubmit = async () => {
   try {
@@ -70,7 +85,7 @@ const onSubmit = async () => {
         token: response.data.token,
       });
       localStorage.setItem("token", `Bearer ${response.data.token}`);
-      await router.push({ path: "/main" });
+      await router.push({path: "/main"});
     }
   } catch (e: any) {
     handleError(e);

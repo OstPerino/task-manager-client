@@ -1,5 +1,5 @@
 <template>
-  <span class="custom-text">
+  <span class="custom-text" :style="{ color: color }">
     <slot></slot>
   </span>
 </template>
