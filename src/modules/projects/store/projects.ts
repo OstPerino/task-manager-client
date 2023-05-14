@@ -9,12 +9,9 @@ export const useProjectsStore = defineStore("projects", {
   },
   actions: {
     async setProjects() {
-      try {
-        const response = await getProjects();
-        this.projects = response.data;
-      } catch (e: any) {
-        return e.response;
-      }
+      try { const response = await getProjects();
+        this.projects = response.data; }
+      catch (e: any) { return e.response; }
     },
   },
 });

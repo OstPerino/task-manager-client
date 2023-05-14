@@ -1,6 +1,7 @@
 <template>
   <div class="main-page">
-    <ProjectsGrid :projects="store.projects" />
+<!--    <ProjectsGrid :projects="store.projects" />-->
+    <ProjectsList :projects="store.projects"/>
   </div>
 </template>
 
@@ -9,6 +10,7 @@ import { onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useProjectsStore } from "@/modules/projects/store/projects";
 import ProjectsGrid from "@/modules/projects/components/ProjectsGrid.vue";
+import ProjectsList from "@/modules/projects/components/ProjectsList.vue";
 
 const router = useRouter();
 const store = useProjectsStore();
