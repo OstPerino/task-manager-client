@@ -25,6 +25,7 @@
       </div>
     </div>
     <div class="right">
+      <!--   TODO: Add buttons for creating task and inviting persons   -->
       <div class="field"></div>
     </div>
   </div>

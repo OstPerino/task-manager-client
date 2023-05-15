@@ -1,6 +1,8 @@
 <template>
   <div class="sidebar">
     <NavBar />
+    <!--  TODO: Add mark of creator  -->
+    <!--  TODO: Think about statistics of activity created and completed tasks  -->
   </div>
 </template>
 

@@ -5,6 +5,6 @@ export async function getTasks(boardId: number) {
   return $api.get(`${tasksEndPoints.getTasks}/${boardId}`);
 }
 
-export async function changeStatus() {
-  return $api.patch(tasksEndPoints.getTasks);
+export async function changeStatus(taskId: number, status: string) {
+  return $api.patch(`${tasksEndPoints.getTasks}/${taskId}`, { status: status });
 }
