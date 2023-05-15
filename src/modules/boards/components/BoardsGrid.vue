@@ -1,5 +1,6 @@
 <template>
   <ul class="boards-grid">
+    <!--  TODO: Добавить сообщение о пустых досках  -->
     <BoardsCard
       v-for="board in boards"
       :board="board"

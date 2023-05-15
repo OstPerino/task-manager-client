@@ -1,4 +1,3 @@
-
 export default {
-  getBoards: "/boards"
-}
+  getBoards: "/board",
+};

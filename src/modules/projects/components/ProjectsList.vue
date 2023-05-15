@@ -1,5 +1,7 @@
 <template>
   <ul class="projects-list">
+    <!--  TODO: Добавить сообщение о пустых проектах  -->
+    <!--  TODO: Добавить текст филд для заполнения описания в проекте  -->
     <ProjectsItem
       v-for="project in projects"
       :project="project"
