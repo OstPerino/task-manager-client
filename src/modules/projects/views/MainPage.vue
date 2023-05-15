@@ -28,5 +28,7 @@ onMounted(async () => {
 
 <style scoped lang="scss">
 .main-page {
+  width: 100%;
+  height: 100%;
 }
 </style>
