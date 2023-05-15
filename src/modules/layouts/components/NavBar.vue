@@ -24,22 +24,22 @@ const links: Array<Link> = [
   {
     title: "Проекты",
     url: "/main",
-    icon: "house"
+    icon: "house",
   },
   {
     title: "Чаты",
     url: "/chats",
-    icon: "comment"
+    icon: "comment",
   },
   {
     title: "Подписки",
     url: "/subscriptions",
-    icon: "user-group"
+    icon: "user-group",
   },
   {
     title: "Выйти",
     url: "/auth",
-    icon: "arrow-right-from-bracket"
+    icon: "arrow-right-from-bracket",
   },
 ];
 </script>
@@ -56,7 +56,6 @@ const links: Array<Link> = [
     flex-direction: column;
 
     .list-item {
-
       .link {
         padding: 1rem 0;
         width: 100%;

@@ -1,11 +1,10 @@
 <template>
   <div class="sidebar">
-    <NavBar/>
+    <NavBar />
   </div>
 </template>
 
 <script setup lang="ts">
-
 import NavBar from "@/modules/layouts/components/NavBar.vue";
 </script>
 

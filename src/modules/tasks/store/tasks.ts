@@ -14,9 +14,10 @@ export const useTasksStore = defineStore("tasks", {
     };
   },
   actions: {
-    async setTasks() {
+    async setTasks(boardId: number) {
       try {
-        const response = await getTasks();
+        const response = await getTasks(boardId);
+        console.log(response);
         this.tasks = response.data;
         this.notStarted = this.tasks.filter(
           (item: Task) => item.status === TaskStatus.NOT_STARTED

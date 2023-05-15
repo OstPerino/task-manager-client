@@ -1,11 +1,16 @@
 <template>
-  <button class="button" @click="onClickHandler" :class="classes" :disabled="isDisabled">
+  <button
+    class="button"
+    @click="onClickHandler"
+    :class="classes"
+    :disabled="isDisabled"
+  >
     <slot></slot>
   </button>
 </template>
 
 <script setup lang="ts">
-import {computed} from "vue";
+import { computed } from "vue";
 
 const emit = defineEmits(["click"]);
 
@@ -16,31 +21,30 @@ const onClickHandler = () => {
 const props = defineProps({
   backgroundColor: {
     type: String,
-    default: 'var(--white)'
+    default: "var(--white)",
   },
   color: {
     type: String,
-    default: 'var(--black)'
+    default: "var(--black)",
   },
   className: {
     type: String,
-    default: 'defaultClass'
+    default: "defaultClass",
   },
   isDisabled: {
     type: Boolean,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 
 const classes = computed(() => {
   if (props.isDisabled) {
-    return [props.className, 'disabled'];
+    return [props.className, "disabled"];
   }
 
   return [props.className];
-})
+});
 </script>
-
 
 <style scoped lang="scss">
 .button {

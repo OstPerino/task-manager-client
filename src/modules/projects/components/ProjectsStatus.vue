@@ -12,9 +12,9 @@ import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 const props = defineProps({
   status: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 </script>
 
 <style scoped>

@@ -1,12 +1,10 @@
 <template>
   <div class="dots">
-    <img src="@/modules/projects/images/icons/dots.svg" alt="dots">
+    <img src="@/modules/projects/images/icons/dots.svg" alt="dots" />
   </div>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .dots {

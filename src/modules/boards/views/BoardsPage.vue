@@ -1,6 +1,6 @@
 <template>
   <div class="boards-page">
-    <BoardsGrid :boards="store.boards"/>
+    <BoardsGrid :boards="store.boards" />
   </div>
 </template>
 
@@ -8,20 +8,16 @@
 import { useBoardsStore } from "@/modules/boards/store/boards";
 import { useRoute } from "vue-router";
 import BoardsGrid from "@/modules/boards/components/BoardsGrid.vue";
-import {onMounted, watchEffect} from "vue";
+import { onMounted, watchEffect } from "vue";
 
 const store = useBoardsStore();
 const route = useRoute();
 
-const pushBack = () => {
-
-}
+const pushBack = () => {};
 
 onMounted(async () => {
   await store.setBoards({ projectId: route.params.id });
-})
+});
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

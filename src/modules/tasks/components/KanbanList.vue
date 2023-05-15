@@ -3,20 +3,16 @@
     <KanbanTitle class="title" />
     <div class="list">
       <KanbanColumn
-          :cards="store.notStarted"
-          @dragged="onDrag"
-          :status="'NOT_STARTED'"
+        :cards="store.notStarted"
+        @dragged="onDrag"
+        :status="'NOT_STARTED'"
       />
       <KanbanColumn
-          :cards="store.active"
-          @dragged="onDrag"
-          :status="'ACTIVE'"
+        :cards="store.active"
+        @dragged="onDrag"
+        :status="'ACTIVE'"
       />
-      <KanbanColumn
-          :cards="store.done"
-          @dragged="onDrag"
-          :status="'DONE'"
-      />
+      <KanbanColumn :cards="store.done" @dragged="onDrag" :status="'DONE'" />
     </div>
   </div>
 </template>

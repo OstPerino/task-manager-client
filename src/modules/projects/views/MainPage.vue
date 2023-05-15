@@ -1,7 +1,7 @@
 <template>
   <div class="main-page">
-<!--    <ProjectsGrid :projects="store.projects" />-->
-    <ProjectsList :projects="store.projects"/>
+    <!--    <ProjectsGrid :projects="store.projects" />-->
+    <ProjectsList :projects="store.projects" />
   </div>
 </template>
 
@@ -17,9 +17,7 @@ import axios from "axios";
 const router = useRouter();
 const store = useProjectsStore();
 
-const pushBack = () => {
-
-}
+const pushBack = () => {};
 
 onMounted(async () => {
   await store.setProjects();

@@ -1,12 +1,10 @@
 <template>
   <div class="projects-icon">
-    <img src="@/modules/projects/images/icons/cube.svg" alt="cube">
+    <img src="@/modules/projects/images/icons/cube.svg" alt="cube" />
   </div>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .projects-icon {

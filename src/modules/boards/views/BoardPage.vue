@@ -1,9 +1,9 @@
 <template>
   <div class="board-page">
     <TableTitle
-      title="Доска 1"
+      :title="boards.currentBoard?.name"
       :push-back="pushBack"
-      description="Описание 1"
+      :description="boards.currentBoard?.description"
       class="title"
     />
     <KanbanList />
@@ -15,13 +15,18 @@ import { useTasksStore } from "@/modules/tasks/store/tasks";
 import { onMounted } from "vue";
 import KanbanList from "@/modules/tasks/components/KanbanList.vue";
 import TableTitle from "@/modules/UI-kit/components/TableTitle.vue";
+import {useRoute} from "vue-router";
+import {useBoardsStore} from "@/modules/boards/store/boards";
 
-const store = useTasksStore();
+const tasks = useTasksStore();
+const boards = useBoardsStore();
+const route = useRoute();
 
 const pushBack = () => {};
 
 onMounted(async () => {
-  await store.setTasks();
+  await tasks.setTasks(+route.params.id);
+  await boards.setCurrentBoard(+route.params.id);
 });
 </script>
 

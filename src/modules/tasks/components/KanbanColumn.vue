@@ -34,7 +34,7 @@ const props = defineProps({
 });
 
 const onDrag = (event) => {
-  console.log(event)
+  console.log(event);
   emit("dragged", event);
 };
 

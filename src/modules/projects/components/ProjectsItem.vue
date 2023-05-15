@@ -1,7 +1,7 @@
 <template>
   <li class="projects-item" @click="onClickHandler">
     <div class="main-projects-content">
-      <ProjectsIcon/>
+      <ProjectsIcon />
       <div class="title">
         <CustomText class="title-text" :font-weight="600" font-size="14px">
           {{ project.name }}
@@ -11,11 +11,11 @@
         </CustomText>
       </div>
       <div class="status">
-        <ProjectsDots/>
-        <ProjectsStatus status="Выполнено" class="status-component"/>
+        <ProjectsDots />
+        <ProjectsStatus status="Выполнено" class="status-component" />
       </div>
     </div>
-    <ProjectsProgress width="100"/>
+    <ProjectsProgress width="100" />
   </li>
 </template>
 
@@ -29,7 +29,7 @@ import ProjectsStatus from "@/modules/projects/components/ProjectsStatus.vue";
 import ProjectsDots from "@/modules/projects/components/ProjectsDots.vue";
 import ProjectsProgress from "@/modules/projects/components/ProjectsProgress.vue";
 
-const emit = defineEmits(["click"])
+const emit = defineEmits(["click"]);
 
 const props = defineProps({
   project: {
@@ -43,13 +43,13 @@ const props = defineProps({
 // });
 
 const onClickHandler = () => {
-  emit("click", props.project.id)
-}
+  emit("click", props.project.id);
+};
 </script>
 
 <style scoped lang="scss">
 .projects-item {
-  border-bottom: 1px solid #DCDCDC;
+  border-bottom: 1px solid #dcdcdc;
   background-color: var(--white);
   padding: 1rem;
   cursor: pointer;

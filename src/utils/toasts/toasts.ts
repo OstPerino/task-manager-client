@@ -1,3 +1,3 @@
 export const toastOptions = {
-  autoClose: 3000
-}
+  autoClose: 3000,
+};

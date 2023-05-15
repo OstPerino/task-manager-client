@@ -1,6 +1,11 @@
 <template>
   <div class="progress">
-    <CustomText class="percent" color="var(--text-tertiary)" font-size="12px" :font-weight="400">
+    <CustomText
+      class="percent"
+      color="var(--text-tertiary)"
+      font-size="12px"
+      :font-weight="400"
+    >
       {{ width }}%
     </CustomText>
     <div class="line"></div>
@@ -13,9 +18,9 @@ import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 const props = defineProps({
   width: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 </script>
 
 <style scoped lang="scss">

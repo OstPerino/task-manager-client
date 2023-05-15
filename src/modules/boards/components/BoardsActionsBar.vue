@@ -1,13 +1,9 @@
 <template>
   <div>
-<!--  TODO: Make actions bar for creating boards  -->
+    <!--  TODO: Make actions bar for creating boards  -->
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>

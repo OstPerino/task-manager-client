@@ -1,7 +1,7 @@
 @import "@/styles/variables.scss";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 *,
 *::after,
@@ -12,22 +12,20 @@
 }
 
 :root {
-  --black: #1B1A16;
-  --background-gray: #EAEDEF;
-  --middle-gray: #F2F4F6;
-  --space-gray: #F6F6F6;
+  --black: #1b1a16;
+  --background-gray: #eaedef;
+  --middle-gray: #f2f4f6;
+  --space-gray: #f6f6f6;
   --subtext-gray: #666365;
-  --blue: #287A9C;
+  --blue: #287a9c;
   --white: #ffffff;
-  --light-blue: #4A6875;
+  --light-blue: #4a6875;
 }
 
 #app {
   width: 100vw;
   height: 100vh;
-  //font-family: 'Noto Sans', sans-serif;
-  //font-family: 'Rubik', sans-serif;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   display: flex;
   background-color: var(--background-gray);
 }
@@ -49,5 +47,5 @@ ul {
 }
 
 .router-link-active {
-  background: linear-gradient(270deg, #F2F4F6 0%, #FFFFFF 100%);
+  background: linear-gradient(270deg, #f2f4f6 0%, #ffffff 100%);
 }

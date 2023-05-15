@@ -2,34 +2,23 @@
   <div class="table-title">
     <div class="left">
       <CustomButton @click="props.pushBack">
-        <img
-            src="@/modules/UI-kit/images/back-icon.svg"
-            alt="arrow"
-        />
-        <CustomText
-            color="black"
-            :font-weight="600"
-            font-size="14px"
-        >
+        <img src="@/modules/UI-kit/images/back-icon.svg" alt="arrow" />
+        <CustomText color="black" :font-weight="600" font-size="14px">
           Назад
         </CustomText>
       </CustomButton>
     </div>
     <div class="mid">
       <div class="top">
-        <CustomText
-            color="black"
-            :font-weight="700"
-            font-size="16px"
-        >
+        <CustomText color="black" :font-weight="700" font-size="16px">
           {{ props.title }}
         </CustomText>
       </div>
       <div class="bottom">
         <CustomText
-            color="var(--subtext-gray)"
-            font-weight="font-weight-semibold"
-            font-size="12px"
+          color="var(--subtext-gray)"
+          font-weight="font-weight-semibold"
+          font-size="12px"
         >
           {{ props.description }}
         </CustomText>
@@ -50,18 +39,18 @@ const props = defineProps({
   title: {
     type: String,
     required: true,
-    default: ""
+    default: "",
   },
   description: {
     type: String,
     required: true,
-    default: ""
+    default: "",
   },
   pushBack: {
     type: Function,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
 // const pushBack = () => {};
 </script>

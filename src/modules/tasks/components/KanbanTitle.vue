@@ -2,7 +2,7 @@
   <div class="kanban-title">
     <div class="title-container" v-for="title in titles">
       <KanbanTitleStatus :content="title" class="title" />
-      <KanbanTaskCounter class="counter"/>
+      <KanbanTaskCounter class="counter" />
     </div>
   </div>
 </template>

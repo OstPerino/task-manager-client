@@ -3,9 +3,9 @@
     <div class="top">
       <ProjectsIcon />
       <div class="title">
-        <CustomText color="var(--black)" :font-weight="700">{{
-          board.name
-        }}</CustomText>
+        <CustomText color="var(--black)" :font-weight="700" class="main-title">
+          {{ board.name }}
+        </CustomText>
         <CustomText
           color="var(--text-tertiary)"
           :font-weight="400"
@@ -71,5 +71,9 @@ const onClickHandler = () => {
 
 .status {
   max-width: 115px;
+}
+
+.main-title {
+  margin-bottom: 4px;
 }
 </style>

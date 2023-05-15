@@ -1,4 +1,3 @@
-
 export default {
-  getTasks: "/tasks"
-}
+  getTasks: "/tasks",
+};
