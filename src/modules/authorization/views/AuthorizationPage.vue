@@ -25,6 +25,7 @@
         <CustomText color="var(--text-secondary)" :style="{ cursor: 'pointer' }">
           <span>
             Не помню пароль
+            <!--     TODO: Ссылка на регистрацию       -->
           </span>
         </CustomText>
       </template>
@@ -79,9 +80,6 @@ const onSubmit = async () => {
 
     if (response.status === 201) {
       auth.setAuthState({
-        email: response.data.email,
-        firstName: response.data.firstName,
-        lastName: response.data.lastName,
         token: response.data.token,
       });
       localStorage.setItem("token", `Bearer ${response.data.token}`);

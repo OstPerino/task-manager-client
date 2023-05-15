@@ -1,3 +1,3 @@
 export default {
-  mainUrl: "/projects",
+  projects: "/projects",
 };
