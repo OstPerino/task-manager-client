@@ -8,3 +8,7 @@ export async function getBoards(data: any) {
 export async function getCurrentBoard(boardId: number) {
   return $api.get(`${boardsEndPoints.currentBoard}/${boardId}`)
 }
+
+export async function createBoard(body: any) {
+  return $api.post(`${boardsEndPoints.getBoards}`, body)
+}

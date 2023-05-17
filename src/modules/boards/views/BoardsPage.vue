@@ -4,6 +4,7 @@
       :title="projects.currentProject?.name"
       :push-back="pushBack"
       :description="projects.currentProject?.description"
+      :create-type="Modals.createBoard"
       class="title"
     />
     <BoardsGrid :boards="store.boards" />
@@ -17,6 +18,7 @@ import BoardsGrid from "@/modules/boards/components/BoardsGrid.vue";
 import { onMounted } from "vue";
 import TableTitle from "@/modules/UI-kit/components/TableTitle.vue";
 import { useProjectsStore } from "@/modules/projects/store/projects";
+import {Modals} from "@/modules/layouts/types/modal.enum";
 
 const store = useBoardsStore();
 const projects = useProjectsStore();

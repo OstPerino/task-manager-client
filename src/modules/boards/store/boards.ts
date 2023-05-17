@@ -1,11 +1,14 @@
 import { defineStore } from "pinia";
-import {getBoards, getCurrentBoard} from "@/modules/boards/services/boards.service";
+import {
+  getBoards,
+  getCurrentBoard,
+} from "@/modules/boards/services/boards.service";
 
 export const useBoardsStore = defineStore("boards", {
   state: () => {
     return {
       boards: [],
-      currentBoard: null
+      currentBoard: null,
     };
   },
   actions: {
@@ -25,6 +28,6 @@ export const useBoardsStore = defineStore("boards", {
       } catch (e: any) {
         return e.response;
       }
-    }
+    },
   },
 });

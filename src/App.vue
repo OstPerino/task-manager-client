@@ -1,6 +1,6 @@
 <template>
   <SideBar class="sidebar" v-if="showSidebar" />
-  <ModalWrapper v-if="false" />
+  <ModalWrapper v-if="modal.showModal" />
   <main class="main">
     <router-view />
   </main>
@@ -11,8 +11,11 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 import SideBar from "@/modules/layouts/components/SideBar.vue";
 import ModalWrapper from "@/modules/layouts/components/ModalWrapper.vue";
+import {useModalStore} from "@/modules/layouts/store/modal";
 
 const route = useRoute();
+const modal = useModalStore();
+
 
 const showSidebar = computed(() => {
   return route.meta.requires;

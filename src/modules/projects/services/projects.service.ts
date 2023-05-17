@@ -8,7 +8,7 @@ export async function getProjects() {
 }
 
 export async function createProject(data: any) {
-  return $api.post(endPoints.projects);
+  return $api.post(endPoints.projects, data);
 }
 
 export async function getCurrentProject(projectId: number) {

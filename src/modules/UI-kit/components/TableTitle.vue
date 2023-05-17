@@ -25,12 +25,10 @@
       </div>
     </div>
     <div class="right">
-      <!--   TODO: Add buttons for creating task and inviting persons   -->
-      <!--      <div class="field"></div>-->
-      <IconButton @click="">
+      <IconButton @click="onInviteClick">
         <font-awesome-icon :icon="['fas', 'user']" class="button-icon" />
       </IconButton>
-      <IconButton @click="">
+      <IconButton @click="onCreateClick">
         <font-awesome-icon :icon="['fas', 'plus']" class="button-icon" />
       </IconButton>
     </div>
@@ -41,6 +39,10 @@
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import IconButton from "@/modules/UI-kit/components/IconButton.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {useModalStore} from "@/modules/layouts/store/modal";
+import {toast} from "vue3-toastify";
+
+const modal = useModalStore();
 
 const props = defineProps({
   title: {
@@ -57,7 +59,19 @@ const props = defineProps({
     type: Function,
     required: true,
   },
+  createType: {
+    type: String,
+    required: true
+  }
 });
+
+const onCreateClick = () => {
+  modal.setCurrentModal(props.createType);
+}
+
+const onInviteClick = () => {
+  toast('Скоро будет!');
+}
 </script>
 
 <style scoped lang="scss">
@@ -96,5 +110,9 @@ const props = defineProps({
   &:first-child {
     margin-right: 0.5rem;
   }
+}
+
+.top {
+  text-align: center;
 }
 </style>
