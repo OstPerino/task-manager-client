@@ -11,6 +11,7 @@
       {{ card.description }}
     </CustomText>
     <!--  TODO: Add opening popup with information about task and adding information  -->
+    <!--  TODO: Delete button   -->
   </div>
 </template>
 

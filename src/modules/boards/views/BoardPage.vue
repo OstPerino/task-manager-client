@@ -4,6 +4,7 @@
       :title="boards.currentBoard?.name"
       :push-back="pushBack"
       :description="boards.currentBoard?.description"
+      :create-type="Modals.createTask"
       class="title"
     />
     <KanbanList />
@@ -17,6 +18,7 @@ import KanbanList from "@/modules/tasks/components/KanbanList.vue";
 import TableTitle from "@/modules/UI-kit/components/TableTitle.vue";
 import {useRoute, useRouter} from "vue-router";
 import {useBoardsStore} from "@/modules/boards/store/boards";
+import {Modals} from "@/modules/layouts/types/modal.enum";
 
 const tasks = useTasksStore();
 const boards = useBoardsStore();

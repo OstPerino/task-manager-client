@@ -32,15 +32,24 @@ import { Modals } from "@/modules/layouts/types/modal.enum";
 import { useRoute } from "vue-router";
 import { computed, reactive } from "vue";
 import { useModalStore } from "@/modules/layouts/store/modal";
+import { useTasksStore } from "@/modules/tasks/store/tasks";
+import { useBoardsStore } from "@/modules/boards/store/boards";
+import { useProjectsStore } from "@/modules/projects/store/projects";
 import { createProject } from "@/modules/projects/services/projects.service";
 import { createBoard } from "@/modules/boards/services/boards.service";
+import { TaskStatus } from "@/types/enums";
+import { createTask } from "@/modules/tasks/services/tasks.service";
 import ModalContainer from "@/modules/layouts/components/ModalContainer.vue";
 import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import CreateProjectFrom from "@/modules/layouts/components/CreateProjectForm.vue";
 import CreateBoardForm from "@/modules/layouts/components/CreateBoardForm.vue";
+import CreateTaskForm from "@/modules/layouts/components/CreateTaskForm.vue";
 
 const modal = useModalStore();
+const boards = useBoardsStore();
+const projects = useProjectsStore();
+const tasks = useTasksStore();
 const route = useRoute();
 const createProjectFormState = reactive({
   email: "",
@@ -55,10 +64,10 @@ const createBoardFormState = reactive({
 const createTaskFormState = reactive({
   title: "",
   description: "",
-  status: "",
-  // boardId: 1,
-  // creatorId: 1,
-  // workerId: 1
+  status: TaskStatus.NOT_STARTED,
+  boardId: route.params.id,
+  creatorId: 1,
+  workerId: 1,
 });
 
 console.log(route.params);
@@ -113,22 +122,32 @@ const updateCreateTaskFormState = (formState: any) => {
 
 const createProjectFunc = async () => {
   try {
-    const response = await createProject(createProjectFormState);
+    await createProject(createProjectFormState);
+    await projects.setProjects();
   } catch (e: any) {
+    // TODO: Добавить тосты по ошибкам
     console.log(e.response);
   }
 };
 
 const createBoardFunc = async () => {
   try {
-    const response = await createBoard(createBoardFormState);
-    console.log(response);
-  } catch (e) {}
+    await createBoard(createBoardFormState);
+    await boards.setBoards({ projectId: route.params.id });
+  } catch (e) {
+    // TODO: Добавить тосты по ошибкам
+    console.log(e);
+  }
 };
 
 const createTaskFunc = async () => {
   try {
-  } catch (e) {}
+    await createTask(createTaskFormState);
+    await tasks.setTasks(+route.params.id);
+  } catch (e) {
+    // TODO: Добавить тосты по ошибкам
+    console.log(e);
+  }
 };
 
 const create = async () => {

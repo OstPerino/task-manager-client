@@ -1,9 +1,9 @@
 <template>
   <div class="task-counter">
     <img src="@/modules/tasks/images/done-icon.svg" alt="done" />
-    <CustomText color="var(--light-blue)" font-size="12px"
-      >{{ content }} задач</CustomText
-    >
+    <CustomText color="var(--light-blue)" font-size="12px">
+      {{ content }} задач
+    </CustomText>
   </div>
 </template>
 
