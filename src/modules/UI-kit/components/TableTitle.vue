@@ -1,12 +1,12 @@
 <template>
   <div class="table-title">
     <div class="left">
-      <CustomButton @click="props.pushBack">
+      <IconButton @click="props.pushBack">
         <img src="@/modules/UI-kit/images/back-icon.svg" alt="arrow" />
         <CustomText color="black" :font-weight="600" font-size="14px">
           Назад
         </CustomText>
-      </CustomButton>
+      </IconButton>
     </div>
     <div class="mid">
       <div class="top">
@@ -17,7 +17,7 @@
       <div class="bottom">
         <CustomText
           color="var(--subtext-gray)"
-          font-weight="font-weight-semibold"
+          :font-weight="600"
           font-size="12px"
         >
           {{ props.description }}
@@ -26,15 +26,21 @@
     </div>
     <div class="right">
       <!--   TODO: Add buttons for creating task and inviting persons   -->
-      <div class="field"></div>
+      <!--      <div class="field"></div>-->
+      <IconButton @click="">
+        <font-awesome-icon :icon="['fas', 'user']" class="button-icon" />
+      </IconButton>
+      <IconButton @click="">
+        <font-awesome-icon :icon="['fas', 'plus']" class="button-icon" />
+      </IconButton>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
-import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
+import IconButton from "@/modules/UI-kit/components/IconButton.vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const props = defineProps({
   title: {
@@ -52,8 +58,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-// const pushBack = () => {};
 </script>
 
 <style scoped lang="scss">
@@ -64,10 +68,33 @@ const props = defineProps({
   align-items: center;
   justify-content: space-between;
   width: 987px;
+  border-radius: 12px;
 
   .left {
     display: flex;
     align-items: center;
+  }
+}
+
+.bottom {
+  text-align: center;
+}
+
+.left {
+  margin-left: 0.5rem;
+}
+
+.right {
+  margin-right: 0.5rem;
+  display: flex;
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+
+  &:first-child {
+    margin-right: 0.5rem;
   }
 }
 </style>

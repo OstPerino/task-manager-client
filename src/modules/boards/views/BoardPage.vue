@@ -15,18 +15,22 @@ import { useTasksStore } from "@/modules/tasks/store/tasks";
 import { onMounted } from "vue";
 import KanbanList from "@/modules/tasks/components/KanbanList.vue";
 import TableTitle from "@/modules/UI-kit/components/TableTitle.vue";
-import {useRoute} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import {useBoardsStore} from "@/modules/boards/store/boards";
 
 const tasks = useTasksStore();
 const boards = useBoardsStore();
 const route = useRoute();
+const router = useRouter();
 
-const pushBack = () => {};
+const pushBack = () => {
+  router.push({ path: `/main/${route.params.projectId}/boards` });
+};
 
 onMounted(async () => {
   await tasks.setTasks(+route.params.id);
   await boards.setCurrentBoard(+route.params.id);
+  console.log(route.params)
 });
 </script>
 

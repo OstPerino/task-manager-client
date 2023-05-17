@@ -1,13 +1,25 @@
 <template>
-  <button>
+  <button class="btn" @click="onClickHandler">
     <slot></slot>
   </button>
 </template>
 
 <script setup lang="ts">
-// TODO: Create icon button
+const emit = defineEmits(['click']);
+
+const onClickHandler = () => {
+  emit('click');
+}
 </script>
 
 <style scoped>
-
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
 </style>

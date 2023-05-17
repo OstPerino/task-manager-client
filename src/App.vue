@@ -1,5 +1,6 @@
 <template>
   <SideBar class="sidebar" v-if="showSidebar" />
+  <ModalWrapper v-if="false" />
   <main class="main">
     <router-view />
   </main>
@@ -9,6 +10,7 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import SideBar from "@/modules/layouts/components/SideBar.vue";
+import ModalWrapper from "@/modules/layouts/components/ModalWrapper.vue";
 
 const route = useRoute();
 
