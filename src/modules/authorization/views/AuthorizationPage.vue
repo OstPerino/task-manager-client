@@ -30,8 +30,8 @@
           color="var(--text-secondary)"
           :style="{ cursor: 'pointer' }"
         >
-          <span>
-            Не помню пароль
+          <span @click="routeToRegistration">
+            Еще не создали аккаунт?
             <!--     TODO: Ссылка на регистрацию       -->
           </span>
         </CustomText>

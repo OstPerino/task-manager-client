@@ -15,7 +15,7 @@
         <ProjectsStatus status="Выполнено" class="status-component" />
       </div>
     </div>
-    <ProjectsProgress width="100" />
+<!--    <ProjectsProgress width="100" />-->
   </li>
 </template>
 
@@ -63,7 +63,7 @@ const onClickHandler = () => {
 
 .main-projects-content {
   display: flex;
-  margin-bottom: 23px;
+  //margin-bottom: 23px;
 }
 
 .title {
