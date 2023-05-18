@@ -2,11 +2,11 @@ import $api from "@/api";
 import endPoints from "@/modules/authorization/services/authorization.end-points";
 import {
   AuthorizationData,
-  RegistrationData
+  RegistrationData,
 } from "@/modules/authorization/services/types";
 
 export async function login(data: AuthorizationData) {
-  return $api.post(endPoints.authGet, data);
+  return $api.post(endPoints.login, data);
 }
 
 export async function registration(data: RegistrationData) {

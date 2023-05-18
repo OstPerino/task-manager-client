@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { ref } from "@vue/runtime-core";
 
-const emit = defineEmits(["input"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
   labelContent: {
@@ -40,11 +40,11 @@ const props = defineProps({
   },
 });
 
-const input = ref<string>(props.modelValue);
+// const input = ref<string>(props.modelValue);
 
 const onInputHandler = (event: InputEvent) => {
   const target = event.target as HTMLInputElement;
-  emit("input", target.value);
+  emit("update:modelValue", target.value);
 };
 </script>
 
@@ -54,10 +54,13 @@ const onInputHandler = (event: InputEvent) => {
 
   .input {
     border: none;
-    border-bottom: 1px solid #8b8b8b;
     font-size: 14px;
-    padding: 14px 0;
+    padding: 13px 12px;
+    border-radius: 8px;
     width: 100%;
+    outline: none;
+    background-color: var(--background-secondary);
+    color: var(--text-tertiary);
 
     &:focus ~ .label {
       top: -18px;
@@ -68,10 +71,11 @@ const onInputHandler = (event: InputEvent) => {
   .label {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 12px;
     transform: translateY(-50%);
     transition: all 0.2s ease;
-    color: #8b8b8b;
+    color: var(--text-tertiary);
+    font-size: 17px;
 
     &.active {
       top: -14px;

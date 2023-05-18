@@ -12,13 +12,19 @@
 
 <style scoped lang="scss">
 .custom-form {
-  border: 1px solid black;
-  width: 400px;
-  height: 400px;
+  background-color: var(--white);
+  border-radius: 12px;
+  width: 407px;
+  height: 480px;
+  padding: 48px 32px 32px 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  .header {
+    color: var(--text-tertiary);
+  }
 
   .form-item {
     width: 100%;

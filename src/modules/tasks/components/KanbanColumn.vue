@@ -5,7 +5,6 @@
       group="tasks"
       class="kanban-column"
       @change="onDrag"
-      :move="onChange"
       item-key="id"
     >
       <template #item="{ element: card }">
@@ -33,13 +32,8 @@ const props = defineProps({
   },
 });
 
-const onDrag = (event) => {
-  console.log(event)
-  emit("dragged", event);
-};
-
-const onChange = (event) => {
-  // console.log(event);
+const onDrag = (event: any) => {
+  emit("dragged", event, props.status);
 };
 </script>
 

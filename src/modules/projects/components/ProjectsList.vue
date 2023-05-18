@@ -1,10 +1,7 @@
 <template>
   <ul class="projects-list">
-    <div class="list-title">
-      <CustomText :font-weight="700">
-        Проекты
-      </CustomText>
-    </div>
+    <!--  TODO: Добавить сообщение о пустых проектах  -->
+    <!--  TODO: Добавить текст филд для заполнения описания в проекте  -->
     <ProjectsItem
       v-for="project in projects"
       :project="project"
@@ -38,13 +35,10 @@ const onClickHandler = async (projectId: number) => {
 
 <style scoped lang="scss">
 .projects-list {
-  background-color: var(--white);
-  padding: 24px 16px;
-  border-radius: 12px;
-  margin-right: 2rem;
-}
-
-.list-title {
-  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  list-style: none;
+  margin: 0;
 }
 </style>

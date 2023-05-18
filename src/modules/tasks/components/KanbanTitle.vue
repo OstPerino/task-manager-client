@@ -1,8 +1,16 @@
 <template>
   <div class="kanban-title">
-    <div class="title-container" v-for="title in titles">
-      <KanbanTitleStatus :content="title" class="title" />
-      <KanbanTaskCounter class="counter"/>
+    <div class="title-container">
+      <KanbanTitleStatus content="Не активные" class="title" />
+      <KanbanTaskCounter :content="String(store.notStarted.length)" class="counter" />
+    </div>
+    <div class="title-container">
+      <KanbanTitleStatus content="В работе" class="title" />
+      <KanbanTaskCounter :content="String(store.active.length)" class="counter" />
+    </div>
+    <div class="title-container">
+      <KanbanTitleStatus content="Готовые" class="title" />
+      <KanbanTaskCounter :content="String(store.done.length)" class="counter" />
     </div>
   </div>
 </template>

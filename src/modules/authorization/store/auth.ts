@@ -18,17 +18,17 @@ export const useAuthStore = defineStore("auth", {
     };
   },
   actions: {
-    setAuthState(payload: AuthState) {
+    setAuthState(payload: any) {
       this.token = payload.token;
-      this.email = payload.email;
-      this.firstName = payload.firstName;
-      this.lastName = payload.lastName;
+      // this.email = payload.email;
+      // this.firstName = payload.firstName;
+      // this.lastName = payload.lastName;
     },
     clearAuthState() {
       this.token = "";
-      this.email = "";
-      this.firstName = "";
-      this.lastName = "";
+      // this.email = "";
+      // this.firstName = "";
+      // this.lastName = "";
       localStorage.removeItem("token");
     },
     async checkUserState() {

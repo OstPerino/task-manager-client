@@ -1,10 +1,14 @@
 import $api from "@/api";
 import tasksEndPoints from "@/modules/tasks/services/tasks.end-points";
 
-export async function getTasks() {
-  return $api.get(tasksEndPoints.getTasks);
+export async function getTasks(boardId: number) {
+  return $api.get(`${tasksEndPoints.getTasks}/${boardId}`);
 }
 
-export async function changeStatus() {
-  return $api.patch(tasksEndPoints.getTasks);
+export async function changeStatus(taskId: number, status: string) {
+  return $api.patch(`${tasksEndPoints.getTasks}/${taskId}`, { status: status });
+}
+
+export async function createTask(body: any) {
+  return $api.post(`${tasksEndPoints.getTasks}`, body);
 }

@@ -13,7 +13,7 @@ export default [
     name: "BoardPage",
     component: BoardPage,
     path: "/main/:projectId/boards/:id",
-    meta: { requires: true }
+    meta: { requires: true },
     // props: (route: any) => ({
     //   id: route.params.id,
     //   name: route.query.name,

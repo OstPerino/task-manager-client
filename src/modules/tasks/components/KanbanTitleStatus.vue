@@ -5,15 +5,13 @@
 </template>
 
 <script setup lang="ts">
-
 const props = defineProps({
   content: {
     type: String,
     required: true,
-    default: ""
-  }
-})
-
+    default: "",
+  },
+});
 </script>
 
 <style scoped lang="scss">

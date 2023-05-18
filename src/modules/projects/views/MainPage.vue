@@ -1,7 +1,7 @@
 <template>
   <div class="main-page">
-<!--    <ProjectsGrid :projects="store.projects" />-->
-    <ProjectsList :projects="store.projects"/>
+    <ProjectsActionsBar class="title"/>
+    <ProjectsList :projects="store.projects" />
   </div>
 </template>
 
@@ -13,13 +13,12 @@ import ProjectsGrid from "@/modules/projects/components/ProjectsGrid.vue";
 import ProjectsList from "@/modules/projects/components/ProjectsList.vue";
 import $api from "@/api";
 import axios from "axios";
+import ProjectsActionsBar from "@/modules/projects/components/ProjectsActionsBar.vue";
 
 const router = useRouter();
 const store = useProjectsStore();
 
-const pushBack = () => {
-
-}
+const pushBack = () => {};
 
 onMounted(async () => {
   await store.setProjects();
@@ -28,5 +27,12 @@ onMounted(async () => {
 
 <style scoped lang="scss">
 .main-page {
+  width: 100%;
+  height: 100%;
+  padding-right: 1rem;
+}
+
+.title {
+  margin-bottom: 1rem;
 }
 </style>

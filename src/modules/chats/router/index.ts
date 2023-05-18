@@ -6,5 +6,5 @@ export default [
     component: ChatPage,
     path: "/chats",
     meta: { requires: true },
-  }
-]
+  },
+];

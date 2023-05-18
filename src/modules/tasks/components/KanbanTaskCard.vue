@@ -3,9 +3,15 @@
     <CustomText :font-weight="600">
       {{ card.title }}
     </CustomText>
-    <CustomText color="var(--subtext-gray)" font-size="12px" class="description">
+    <CustomText
+      color="var(--subtext-gray)"
+      font-size="12px"
+      class="description"
+    >
       {{ card.description }}
     </CustomText>
+    <!--  TODO: Add opening popup with information about task and adding information  -->
+    <!--  TODO: Delete button   -->
   </div>
 </template>
 

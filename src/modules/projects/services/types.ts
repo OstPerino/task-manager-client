@@ -2,7 +2,7 @@ import { Task } from "@/modules/tasks/types/types";
 
 export interface Project {
   id: number;
-  title: string;
+  name: string;
   description: string;
   boards: Task[];
 }
