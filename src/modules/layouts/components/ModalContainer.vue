@@ -6,6 +6,7 @@
           <slot name="header"></slot>
         </CustomText>
         <IconButton>
+          <!--    TODO: Doesn't work      -->
           <font-awesome-icon :icon="['far', 'xmark']" />
         </IconButton>
       </div>

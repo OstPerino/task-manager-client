@@ -1,10 +1,17 @@
-import ChatPage from "@/modules/chats/views/ChatsPage.vue";
+import ChatsPage from "@/modules/chats/views/ChatsPage.vue";
+import ChatPage from "@/modules/chats/views/ChatPage.vue";
 
 export default [
   {
-    name: "ChatPage",
-    component: ChatPage,
+    name: "ChatsPage",
+    component: ChatsPage,
     path: "/chats",
     meta: { requires: true },
   },
+  {
+    name: "ChatPage",
+    component: ChatPage,
+    path: "/chats/:id",
+    meta: { requires: true }
+  }
 ];

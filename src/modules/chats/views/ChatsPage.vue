@@ -1,33 +1,38 @@
 <template>
   <div class="chats-page">
-    <CustomButton @click="sendMessage"> Click me </CustomButton>
+<!--    <CustomButton @click="sendMessage"> Click me </CustomButton>-->
+    <ChatsList/>
   </div>
 </template>
 
 <script setup lang="ts">
-import { io } from "socket.io-client";
-import { onDeactivated, onMounted } from "vue";
-import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
-import { ref } from "@vue/runtime-core";
+// import { io } from "socket.io-client";
+// import { onDeactivated, onMounted } from "vue";
+// import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
+// import { ref } from "@vue/runtime-core";
+import ChatsList from "@/modules/chats/components/ChatsList.vue";
 
-const socket = io("http://localhost:3000/");
-const messages = ref<any>([]);
 
-const sendMessage = () => {
-  socket.emit("newMessage", "message");
-};
 
-onMounted(() => {
-  socket.on("connect", () => {
-    console.log("connect is successfully");
-  });
-});
 
-onDeactivated(() => {
-  socket.on("disconnect", () => {
-    console.log("disconnected");
-  });
-});
+// const socket = io("http://localhost:3000/");
+// const messages = ref<any>([]);
+//
+// const sendMessage = () => {
+//   socket.emit("newMessage", "message");
+// };
+//
+// onMounted(() => {
+//   socket.on("connect", () => {
+//     console.log("connect is successfully");
+//   });
+// });
+
+// onDeactivated(() => {
+//   socket.on("disconnect", () => {
+//     console.log("disconnected");
+//   });
+// });
 </script>
 
 <style scoped></style>
