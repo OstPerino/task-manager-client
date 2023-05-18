@@ -20,6 +20,7 @@ import SendMessageForm from "@/modules/chats/components/SendMessageForm.vue";
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 12px;
 }
 
 .send-message {
