@@ -6,6 +6,8 @@ import {
   faPlus,
   faUser,
   faXmark,
+  faPaperclip,
+  faXmarksLines
 } from "@fortawesome/free-solid-svg-icons";
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -18,8 +20,9 @@ library.add(
   faArrowRightFromBracket,
   faPlus,
   faUser,
-  faXmark,
-  far
+  faPaperclip,
+  faXmarksLines,
+  faXmark
 );
 
 const fontAwesomeIconComponent = {

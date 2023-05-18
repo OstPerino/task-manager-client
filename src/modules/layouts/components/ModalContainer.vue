@@ -5,9 +5,9 @@
         <CustomText :font-weight="700" font-size="17px" color="var(--black)">
           <slot name="header"></slot>
         </CustomText>
-        <IconButton>
+        <IconButton @click="closeModalContainer">
           <!--    TODO: Doesn't work      -->
-          <font-awesome-icon :icon="['far', 'xmark']" />
+          <font-awesome-icon :icon="['fas', 'xmark']" />
         </IconButton>
       </div>
       <div class="main-modal-content">
@@ -24,6 +24,13 @@
 import IconButton from "@/modules/UI-kit/components/IconButton.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
+import {useModalStore} from "@/modules/layouts/store/modal";
+
+const modals = useModalStore();
+
+const closeModalContainer = () => {
+  modals.closeModal();
+}
 </script>
 
 <style scoped lang="scss">

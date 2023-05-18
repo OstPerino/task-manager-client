@@ -40,7 +40,7 @@ const props = defineProps({
 });
 
 const onCLickHandler = () => {
-  emit('click');
+  emit('click', props.chat.id);
 }
 </script>
 

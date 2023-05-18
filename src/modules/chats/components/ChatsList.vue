@@ -1,14 +1,15 @@
 <template>
   <div class="chats-list">
     <ScrollChooseUser />
-    <ChatsItem v-for="chat in chats" :key="chat.id" :chat="chat" />
+    <ChatsItem v-for="chat in chats" :key="chat.id" :chat="chat" @click="chatClickHandler" />
   </div>
 </template>
 
 <script setup lang="ts">
-import ChatsItem from "@/modules/chats/components/ChatsItem.vue";
 import { ref } from "@vue/runtime-core";
+import ChatsItem from "@/modules/chats/components/ChatsItem.vue";
 import ScrollChooseUser from "@/modules/chats/components/ScrollChooseUser.vue";
+import {useRouter} from "vue-router";
 
 const chats = ref([
   {
@@ -144,6 +145,11 @@ const chats = ref([
     ],
   },
 ]);
+const router = useRouter();
+
+const chatClickHandler = async (chatId: number) => {
+  await router.push({ path: `/chats/${chatId}` });
+}
 </script>
 
 <style scoped lang="scss">

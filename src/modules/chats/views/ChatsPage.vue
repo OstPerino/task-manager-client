@@ -12,9 +12,6 @@
 // import { ref } from "@vue/runtime-core";
 import ChatsList from "@/modules/chats/components/ChatsList.vue";
 
-
-
-
 // const socket = io("http://localhost:3000/");
 // const messages = ref<any>([]);
 //
