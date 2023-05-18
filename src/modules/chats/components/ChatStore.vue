@@ -18,5 +18,6 @@ const chats = useChatsStore();
 .chat-store {
   height: 100%;
   width: 100%;
+  margin-bottom: auto;
 }
 </style>
