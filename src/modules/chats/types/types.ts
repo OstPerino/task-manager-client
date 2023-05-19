@@ -5,3 +5,10 @@ export interface IMessage {
   senderName: string;
   time: string;
 }
+
+export interface IChat {
+  id?: number;
+  firstUserId: number;
+  secondUserId: number;
+  messages: IMessage[];
+}

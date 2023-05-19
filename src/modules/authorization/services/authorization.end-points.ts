@@ -3,4 +3,5 @@ export default {
   registration: "/auth/registration",
   checkUser: "/auth/check",
   authGet: "/auth/get",
+  users: "/users"
 };

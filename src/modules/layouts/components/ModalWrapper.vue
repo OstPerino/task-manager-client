@@ -15,6 +15,7 @@
           v-if="modal.currentModal === Modals.createTask"
           @update:form-state="updateCreateTaskFormState"
         />
+        <CreateChatForm v-if="modal.currentModal === Modals.createChat" />
       </template>
       <template #complete>
         <CustomButton :style="{ width: '200px' }" @click="create">
@@ -45,6 +46,8 @@ import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import CreateProjectFrom from "@/modules/layouts/components/CreateProjectForm.vue";
 import CreateBoardForm from "@/modules/layouts/components/CreateBoardForm.vue";
 import CreateTaskForm from "@/modules/layouts/components/CreateTaskForm.vue";
+import CreateChatForm from "@/modules/layouts/components/CreateChatForm.vue";
+import {createChat} from "@/modules/chats/services/chats.services";
 
 const modal = useModalStore();
 const boards = useBoardsStore();
@@ -69,6 +72,9 @@ const createTaskFormState = reactive({
   creatorId: 1,
   workerId: 1,
 });
+const createChatFormState = reactive({
+  // firstUserId:
+})
 
 console.log(route.params);
 
@@ -82,6 +88,9 @@ const buttonTextGenerate = computed(() => {
 
     case Modals.createTask:
       return "Создать задачу";
+
+    case Modals.createChat:
+      return "Создать чат";
 
     default:
       return "Закрыть";
@@ -98,6 +107,9 @@ const headerTextGenerate = computed(() => {
 
     case Modals.createTask:
       return "Задача";
+
+    case Modals.createChat:
+      return "Чат";
 
     default:
       return "Закрыть";
@@ -149,6 +161,15 @@ const createTaskFunc = async () => {
     console.log(e);
   }
 };
+
+const createChatFunc = async () => {
+  try {
+    await createChat(createChatFormState);
+    await chats.addChat();
+  } catch (e) {
+
+  }
+}
 
 const create = async () => {
   switch (modal.currentModal) {

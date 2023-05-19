@@ -28,6 +28,8 @@ import {IMessage} from "@/modules/chats/types/types";
 import {useAuthStore} from "@/modules/authorization/store/auth";
 import {onMounted} from "vue";
 
+const emit = defineEmits(["update:addMessage"]);
+
 const messageText = ref<string>("");
 
 const chats = useChatsStore();
@@ -43,7 +45,8 @@ const sendMessage = () => {
     time: time,
   }
 
-  chats.addMessage(newMessage);
+  emit('update:addMessage', newMessage);
+  // chats.addMessage(newMessage);
   messageText.value = "";
 }
 
