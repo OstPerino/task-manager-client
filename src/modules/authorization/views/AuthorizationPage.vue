@@ -78,6 +78,10 @@ const handleError = (error: AxiosError) => {
   console.log(error);
 };
 
+const routeToRegistration = () => {
+  router.push({ path: "/registration" })
+}
+
 watchEffect(() => {
   isDisabled.value = state.email === "" || state.password === "";
 });

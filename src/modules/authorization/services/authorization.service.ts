@@ -10,7 +10,7 @@ export async function login(data: AuthorizationData) {
   return $api.post(endPoints.login, data);
 }
 
-export async function registration(data: RegistrationData) {
+export async function registration(data: any) {
   return $api.post(endPoints.registration, data);
 }
 

@@ -14,8 +14,8 @@
 .custom-form {
   background-color: var(--white);
   border-radius: 12px;
-  width: 407px;
-  height: 480px;
+  min-width: 407px;
+  min-height: 480px;
   padding: 48px 32px 32px 40px;
   display: flex;
   flex-direction: column;
@@ -24,6 +24,7 @@
 
   .header {
     color: var(--text-tertiary);
+    margin-bottom: 1.5rem;
   }
 
   .form-item {

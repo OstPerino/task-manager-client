@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import UserChatCircle from "@/modules/chats/components/UserChatCircle.vue";
 import { ref } from "@vue/runtime-core";
+import UserChatCircle from "@/modules/chats/components/UserChatCircle.vue";
 
 const users = ref([
   {
@@ -21,27 +21,27 @@ const users = ref([
   },
   {
     id: 2,
-    name: "Никита",
+    name: "Александр",
   },
   {
     id: 3,
-    name: "Никита",
+    name: "Алексей",
   },
   {
     id: 4,
-    name: "Никита",
+    name: "Владимир",
   },
   {
     id: 5,
-    name: "Никита",
+    name: "Степан",
   },
   {
     id: 5,
-    name: "Никита",
+    name: "Николай",
   },
   {
     id: 5,
-    name: "Никита",
+    name: "Василий",
   },
 ]);
 </script>
