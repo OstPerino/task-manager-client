@@ -1,13 +1,13 @@
 <template>
   <div class="dropdown">
-    <button @click="toggleDropdown">{{ selectedOption?.label }}</button>
+    <button @click="toggleDropdown">{{ selectedOption?.label || selectedOption?.name }}</button>
     <ul v-show="state.isDropdownOpen">
       <li
           v-for="option in options"
           :key="option?.id"
           @click="onChangeHandler(option)"
       >
-        {{ option?.label }}
+        {{ option?.label || option?.name }}
       </li>
     </ul>
 

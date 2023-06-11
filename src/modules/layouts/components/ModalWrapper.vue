@@ -54,16 +54,20 @@ const boards = useBoardsStore();
 const projects = useProjectsStore();
 const tasks = useTasksStore();
 const route = useRoute();
+
 const createProjectFormState = reactive({
   email: "",
   name: "",
   description: "",
 });
+
 const createBoardFormState = reactive({
   name: "",
   description: "",
   projectId: route.params.id,
+  githubURL: ""
 });
+
 const createTaskFormState = reactive({
   title: "",
   description: "",
@@ -71,12 +75,12 @@ const createTaskFormState = reactive({
   boardId: route.params.id,
   creatorId: 1,
   workerId: 1,
+  branchName: ""
 });
+
 const createChatFormState = reactive({
   // firstUserId:
 })
-
-console.log(route.params);
 
 const buttonTextGenerate = computed(() => {
   switch (modal.currentModal) {
@@ -125,11 +129,13 @@ const updateCreateProjectFormState = (formState: any) => {
 const updateCreateBoardFormState = (formState: any) => {
   createBoardFormState.name = formState.name;
   createBoardFormState.description = formState.description;
+  createBoardFormState.githubURL = formState.githubURL;
 };
 
 const updateCreateTaskFormState = (formState: any) => {
   createTaskFormState.title = formState.title;
   createTaskFormState.description = formState.description;
+  createTaskFormState.branchName = formState.branchName;
 };
 
 const createProjectFunc = async () => {
@@ -154,6 +160,7 @@ const createBoardFunc = async () => {
 
 const createTaskFunc = async () => {
   try {
+    console.log(createTaskFormState);
     await createTask(createTaskFormState);
     await tasks.setTasks(+route.params.id);
   } catch (e) {

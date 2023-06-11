@@ -10,23 +10,59 @@
       label-content="Описание"
       class="input"
     />
+    <CustomDropdown
+      :selected-option="currentOption"
+      :options="options"
+      class="input"
+      @update:selected-option="updateOption"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import {reactive, watch} from "vue";
+import { ref } from "@vue/runtime-core";
+import { onMounted, reactive, watch } from "vue";
+import { getBranches } from "@/api/github.services";
+import { useBoardsStore } from "@/modules/boards/store/boards";
 import CustomInput from "@/modules/UI-kit/components/CustomInput.vue";
+import CustomDropdown from "@/modules/UI-kit/components/CustomDropdown.vue";
 
-const emit = defineEmits(['update:formState']);
+const boards = useBoardsStore();
+
+const emit = defineEmits(["update:formState"]);
+
+const options = ref([]);
+const currentOption = reactive({ name: "Не выбрано" });
 
 const formState = reactive({
   title: "",
   description: "",
+  branchName: ""
 });
 
-watch(() => { return { ...formState }}, () => {
-  emit('update:formState', formState);
-})
+const updateOption = (option: any) => {
+  currentOption.name = option.name;
+  formState.branchName = option.name;
+}
+
+watch(
+  () => {
+    return { ...formState };
+  },
+  () => {
+    emit("update:formState", formState);
+  }
+);
+
+onMounted(async () => {
+  try {
+    const response = await getBranches(boards?.currentBoard?.githubURL);
+    options.value = response?.data;
+    console.log(options.value);
+  } catch (e) {
+    console.log(e);
+  }
+});
 </script>
 
 <style scoped lang="scss">
