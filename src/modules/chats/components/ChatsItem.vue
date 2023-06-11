@@ -6,20 +6,29 @@
       </div>
       <div class="right-container">
         <div class="content">
-          <CustomText :font-weight="600" font-size="14px" color="var(--black)" class="top">
-            Никита Куценко
+          <CustomText
+            :font-weight="600"
+            font-size="14px"
+            color="var(--black)"
+            class="top"
+          >
+            {{ `${userInfo.firstName} ${userInfo.lastName}` }}
           </CustomText>
           <CustomText
-              :font-weight="600"
-              font-size="14px"
-              color="var(--text-subtext)"
+            :font-weight="600"
+            font-size="14px"
+            color="var(--text-subtext)"
           >
-            Отлично, жду выполнения задачи
+            {{ getLastMessage }}
           </CustomText>
         </div>
         <div class="last-date">
-          <CustomText color="var(--text-subtext)" :font-weight="600" font-size="14px">
-            19 НОЯ
+          <CustomText
+            color="var(--text-subtext)"
+            :font-weight="600"
+            font-size="14px"
+          >
+            {{ getDateOfLastMessage }}
           </CustomText>
         </div>
       </div>
@@ -29,19 +38,75 @@
 
 <script setup lang="ts">
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
+import { computed, onMounted, PropType, reactive } from "vue";
+import { useAuthStore } from "@/modules/authorization/store/auth";
+import { IChat } from "@/modules/chats/types/types";
+import { getUserInfo } from "@/modules/authorization/services/authorization.service";
+import { Nullable } from "@/types";
 
-const emit = defineEmits(['click']);
+const userInfo = reactive({
+  id: 0,
+  firstName: "",
+  lastName: "",
+  email: "",
+});
+
+const emit = defineEmits(["click"]);
+
+const auth = useAuthStore();
 
 const props = defineProps({
   chat: {
-    type: Object,
-    required: true
+    type: Object as PropType<Nullable<IChat>>,
+    required: true,
+  },
+});
+//
+const onCLickHandler = () => {
+  emit("click", props?.chat?.id);
+};
+
+const getLastMessage = computed(() => {
+  if (props.chat) {
+    if (!props.chat?.messages?.length) {
+      return "Пока что нет сообщений";
+    } else {
+      return props.chat?.messages[props.chat?.messages?.length - 1]?.text;
+    }
   }
 });
 
-const onCLickHandler = () => {
-  emit('click');
-}
+const getDateOfLastMessage = computed(() => {
+  if (!props?.chat?.messages.length) {
+    return "";
+  } else {
+    return props.chat.messages[props.chat.messages.length - 1].time;
+  }
+});
+
+const getForeignUserId = () => {
+  return props.chat?.firstUserId === auth.userId
+    ? props.chat?.secondUserId
+    : props.chat?.firstUserId;
+};
+
+const init = async () => {
+  try {
+    const chatPartnerId = getForeignUserId();
+    const chatPartnerData = await getUserInfo(chatPartnerId);
+    userInfo.email = chatPartnerData.email;
+    userInfo.firstName = chatPartnerData.firstName;
+    userInfo.lastName = chatPartnerData.lastName;
+    userInfo.id = chatPartnerData.id;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+// TODO: Get user by id
+onMounted(async () => {
+  await init();
+});
 </script>
 
 <style scoped lang="scss">

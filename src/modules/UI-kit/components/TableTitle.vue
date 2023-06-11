@@ -36,11 +36,11 @@
 </template>
 
 <script setup lang="ts">
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { useModalStore } from "@/modules/layouts/store/modal";
+import { toast } from "vue3-toastify";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import IconButton from "@/modules/UI-kit/components/IconButton.vue";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import {useModalStore} from "@/modules/layouts/store/modal";
-import {toast} from "vue3-toastify";
 
 const modal = useModalStore();
 
@@ -61,17 +61,17 @@ const props = defineProps({
   },
   createType: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 const onCreateClick = () => {
   modal.setCurrentModal(props.createType);
-}
+};
 
 const onInviteClick = () => {
-  toast('Скоро будет!');
-}
+  toast("Скоро будет!");
+};
 </script>
 
 <style scoped lang="scss">

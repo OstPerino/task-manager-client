@@ -1,149 +1,26 @@
 <template>
   <div class="chats-list">
     <ScrollChooseUser />
-    <ChatsItem v-for="chat in chats" :key="chat.id" :chat="chat" />
+    <ChatsItem
+      v-for="chat in chats?.chats"
+      :chat="chat"
+      @click="chatClickHandler"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+import { useRouter } from "vue-router";
+import { useChatsStore } from "@/modules/chats/store/chats";
 import ChatsItem from "@/modules/chats/components/ChatsItem.vue";
-import { ref } from "@vue/runtime-core";
 import ScrollChooseUser from "@/modules/chats/components/ScrollChooseUser.vue";
 
-const chats = ref([
-  {
-    id: 1,
-    name: "Nikita",
-    surname: "Kucenko",
-    messages: [
-      {
-        senderId: 3,
-        receiverId: 2,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 4,
-        receiverId: 5,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 6,
-        receiverId: 7,
-        text: "Отлично, жду выполнения задачи",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Nikita",
-    surname: "Kucenko",
-    messages: [
-      {
-        senderId: 3,
-        receiverId: 2,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 4,
-        receiverId: 5,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 6,
-        receiverId: 7,
-        text: "Отлично, жду выполнения задачи",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Nikita",
-    surname: "Kucenko",
-    messages: [
-      {
-        senderId: 3,
-        receiverId: 2,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 4,
-        receiverId: 5,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 6,
-        receiverId: 7,
-        text: "Отлично, жду выполнения задачи",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Nikita",
-    surname: "Kucenko",
-    messages: [
-      {
-        senderId: 3,
-        receiverId: 2,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 4,
-        receiverId: 5,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 6,
-        receiverId: 7,
-        text: "Отлично, жду выполнения задачи",
-      },
-    ],
-  },
-  {
-    id: 5,
-    name: "Nikita",
-    surname: "Kucenko",
-    messages: [
-      {
-        senderId: 3,
-        receiverId: 2,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 4,
-        receiverId: 5,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 6,
-        receiverId: 7,
-        text: "Отлично, жду выполнения задачи",
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: "Nikita",
-    surname: "Kucenko",
-    messages: [
-      {
-        senderId: 3,
-        receiverId: 2,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 4,
-        receiverId: 5,
-        text: "Отлично, жду выполнения задачи",
-      },
-      {
-        senderId: 6,
-        receiverId: 7,
-        text: "Отлично, жду выполнения задачи",
-      },
-    ],
-  },
-]);
+const router = useRouter();
+const chats = useChatsStore();
+
+const chatClickHandler = async (chatId: number) => {
+  await router.push({ path: `/chats/${chatId}` });
+};
 </script>
 
 <style scoped lang="scss">

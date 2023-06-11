@@ -31,11 +31,11 @@ const links: Array<Link> = [
     url: "/chats",
     icon: "comment",
   },
-  {
-    title: "Подписки",
-    url: "/subscriptions",
-    icon: "user-group",
-  },
+  // {
+  //   title: "Подписки",
+  //   url: "/subscriptions",
+  //   icon: "user-group",
+  // },
   {
     title: "Выйти",
     url: "/auth",

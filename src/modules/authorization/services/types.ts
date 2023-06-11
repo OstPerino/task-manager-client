@@ -11,6 +11,13 @@ export interface RegistrationData {
   email: string;
 }
 
+export interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  id: number;
+}
+
 // interface LoginResponseSuccess {
 //   token: string;
 //   firstName: string;

@@ -3,12 +3,14 @@ import {
   getBoards,
   getCurrentBoard,
 } from "@/modules/boards/services/boards.service";
+import { IBoard } from "@/modules/boards/types/types";
+import { Undefinable } from "@/types";
 
 export const useBoardsStore = defineStore("boards", {
   state: () => {
     return {
       boards: [],
-      currentBoard: null,
+      currentBoard: undefined as Undefinable<IBoard>,
     };
   },
   actions: {
@@ -23,7 +25,6 @@ export const useBoardsStore = defineStore("boards", {
     async setCurrentBoard(boardId: number) {
       try {
         const response = await getCurrentBoard(boardId);
-        console.log(response);
         this.currentBoard = response.data;
       } catch (e: any) {
         return e.response;

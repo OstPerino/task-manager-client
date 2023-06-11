@@ -15,6 +15,7 @@
           v-if="modal.currentModal === Modals.createTask"
           @update:form-state="updateCreateTaskFormState"
         />
+        <CreateChatForm v-if="modal.currentModal === Modals.createChat" />
       </template>
       <template #complete>
         <CustomButton :style="{ width: '200px' }" @click="create">
@@ -45,22 +46,28 @@ import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import CreateProjectFrom from "@/modules/layouts/components/CreateProjectForm.vue";
 import CreateBoardForm from "@/modules/layouts/components/CreateBoardForm.vue";
 import CreateTaskForm from "@/modules/layouts/components/CreateTaskForm.vue";
+import CreateChatForm from "@/modules/layouts/components/CreateChatForm.vue";
+import {createChat} from "@/modules/chats/services/chats.services";
 
 const modal = useModalStore();
 const boards = useBoardsStore();
 const projects = useProjectsStore();
 const tasks = useTasksStore();
 const route = useRoute();
+
 const createProjectFormState = reactive({
   email: "",
   name: "",
   description: "",
 });
+
 const createBoardFormState = reactive({
   name: "",
   description: "",
   projectId: route.params.id,
+  githubURL: ""
 });
+
 const createTaskFormState = reactive({
   title: "",
   description: "",
@@ -68,9 +75,12 @@ const createTaskFormState = reactive({
   boardId: route.params.id,
   creatorId: 1,
   workerId: 1,
+  branchName: ""
 });
 
-console.log(route.params);
+const createChatFormState = reactive({
+  // firstUserId:
+})
 
 const buttonTextGenerate = computed(() => {
   switch (modal.currentModal) {
@@ -82,6 +92,9 @@ const buttonTextGenerate = computed(() => {
 
     case Modals.createTask:
       return "Создать задачу";
+
+    case Modals.createChat:
+      return "Создать чат";
 
     default:
       return "Закрыть";
@@ -99,6 +112,9 @@ const headerTextGenerate = computed(() => {
     case Modals.createTask:
       return "Задача";
 
+    case Modals.createChat:
+      return "Чат";
+
     default:
       return "Закрыть";
   }
@@ -113,11 +129,13 @@ const updateCreateProjectFormState = (formState: any) => {
 const updateCreateBoardFormState = (formState: any) => {
   createBoardFormState.name = formState.name;
   createBoardFormState.description = formState.description;
+  createBoardFormState.githubURL = formState.githubURL;
 };
 
 const updateCreateTaskFormState = (formState: any) => {
   createTaskFormState.title = formState.title;
   createTaskFormState.description = formState.description;
+  createTaskFormState.branchName = formState.branchName;
 };
 
 const createProjectFunc = async () => {
@@ -142,6 +160,7 @@ const createBoardFunc = async () => {
 
 const createTaskFunc = async () => {
   try {
+    console.log(createTaskFormState);
     await createTask(createTaskFormState);
     await tasks.setTasks(+route.params.id);
   } catch (e) {
@@ -149,6 +168,15 @@ const createTaskFunc = async () => {
     console.log(e);
   }
 };
+
+const createChatFunc = async () => {
+  try {
+    await createChat(createChatFormState);
+    await chats.addChat();
+  } catch (e) {
+
+  }
+}
 
 const create = async () => {
   switch (modal.currentModal) {

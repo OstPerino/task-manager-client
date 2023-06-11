@@ -1,38 +1,25 @@
 <template>
   <div class="chats-page">
-<!--    <CustomButton @click="sendMessage"> Click me </CustomButton>-->
-    <ChatsList/>
+    <ChatsList />
+    <ChatsActionsBar />
   </div>
 </template>
 
 <script setup lang="ts">
-// import { io } from "socket.io-client";
-// import { onDeactivated, onMounted } from "vue";
-// import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
-// import { ref } from "@vue/runtime-core";
+import { onMounted } from "vue";
+import { useChatsStore } from "@/modules/chats/store/chats";
 import ChatsList from "@/modules/chats/components/ChatsList.vue";
+import ChatsActionsBar from "@/modules/chats/components/ChatsActionsBar.vue";
 
+const chats = useChatsStore();
 
-
-
-// const socket = io("http://localhost:3000/");
-// const messages = ref<any>([]);
-//
-// const sendMessage = () => {
-//   socket.emit("newMessage", "message");
-// };
-//
-// onMounted(() => {
-//   socket.on("connect", () => {
-//     console.log("connect is successfully");
-//   });
-// });
-
-// onDeactivated(() => {
-//   socket.on("disconnect", () => {
-//     console.log("disconnected");
-//   });
-// });
+onMounted(async () => {
+  await chats.setChats();
+});
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.chats-page {
+  display: flex;
+}
+</style>

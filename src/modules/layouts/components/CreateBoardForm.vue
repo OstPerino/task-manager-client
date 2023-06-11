@@ -1,32 +1,43 @@
 <template>
   <div class="create-board-form">
     <CustomInput
-        v-model="formState.name"
-        label-content="Название доски"
-        class="input"
+      v-model="formState.name"
+      label-content="Название доски"
+      class="input"
     />
     <CustomInput
-        v-model="formState.description"
-        label-content="Описание"
-        class="input"
+      v-model="formState.description"
+      label-content="Описание"
+      class="input"
+    />
+    <CustomInput
+      v-model="formState.githubURL"
+      label-content="Введите ссылку на репозиторий"
+      class="input"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import {reactive, watch} from "vue";
+import { reactive, watch } from "vue";
 import CustomInput from "@/modules/UI-kit/components/CustomInput.vue";
 
-const emit = defineEmits(['update:formState']);
+const emit = defineEmits(["update:formState"]);
 
 const formState = reactive({
   name: "",
-  description: ""
-})
+  description: "",
+  githubURL: "",
+});
 
-watch(() => { return { ...formState }}, () => {
-  emit('update:formState', formState);
-})
+watch(
+  () => {
+    return { ...formState };
+  },
+  () => {
+    emit("update:formState", formState);
+  }
+);
 </script>
 
 <style scoped lang="scss">
@@ -37,8 +48,8 @@ watch(() => { return { ...formState }}, () => {
 .input {
   margin-top: 1.5rem;
 
-&:first-child {
-   margin-top: 0;
- }
+  &:first-child {
+    margin-top: 0;
+  }
 }
 </style>

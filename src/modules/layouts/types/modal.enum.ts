@@ -1,5 +1,6 @@
 export enum Modals {
   createProject = "createProject",
   createBoard = "createBoard",
-  createTask = "createTask"
+  createTask = "createTask",
+  createChat = "createChat"
 }
