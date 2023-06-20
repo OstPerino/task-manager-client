@@ -16,7 +16,6 @@ import {useModalStore} from "@/modules/layouts/store/modal";
 const route = useRoute();
 const modal = useModalStore();
 
-
 const showSidebar = computed(() => {
   return route.meta.requires;
 });

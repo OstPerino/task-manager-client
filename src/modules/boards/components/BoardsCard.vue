@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="middle">
-      <!--   TODO: Add in status how much tasks are complete   -->
+      <!--   TODO: Add in status how much tasks are completed   -->
       <ProjectsStatus status="Выполнено" class="status" />
     </div>
     <div class="bottom">

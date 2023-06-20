@@ -46,21 +46,3 @@ export const useChatsStore = defineStore("chats", {
   },
 });
 
-// {
-//   id: 1,
-//   text: "Привет, как дела?",
-//   senderName: "Никита",
-//   time: "12:20"
-// },
-// {
-//   id: 2,
-//   text: "Все впорядке, как у тебя?",
-//   senderName: "Александр",
-//   time: "12:22"
-// },
-// {
-//   id: 3,
-//   text: "Тоже ничего, сижу работаю",
-//   senderName: "Никита",
-//   time: "12:24"
-// },

@@ -12,6 +12,18 @@
         {{ card.description }}
       </CustomText>
     </div>
+    <div class="actions">
+      <div class="delete">
+        <button>
+          <font-awesome-icon :icon="['fas', 'trash']" class="icon"/>
+        </button>
+      </div>
+      <div class="edit">
+        <button>
+          <font-awesome-icon :icon="['fas', 'pencil']" class="icon" />
+        </button>
+      </div>
+    </div>
     <div class="bottom">
       <ProjectsStatus :status="card.branchName"/>
     </div>
@@ -23,6 +35,8 @@
 <script setup lang="ts">
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import ProjectsStatus from "@/modules/projects/components/ProjectsStatus.vue";
+import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 const props = defineProps(["card"]);
 </script>
@@ -40,13 +54,25 @@ const props = defineProps(["card"]);
   justify-content: space-between;
   padding: 1rem;
   width: 240px;
-  height: 137px;
+  min-height: 137px;
   background-color: var(--white);
   cursor: pointer;
   border-radius: 12px;
 
   .description {
     margin-top: 4px;
+  }
+
+  .actions {
+    display: flex;
+
+
+    button {
+      margin-right: 0.5rem;
+      outline: none;
+      background-color: transparent;
+      border: none;
+    }
   }
 }
 </style>

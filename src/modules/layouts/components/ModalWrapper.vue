@@ -16,9 +16,16 @@
           @update:form-state="updateCreateTaskFormState"
         />
         <CreateChatForm v-if="modal.currentModal === Modals.createChat" />
+        <InviteUserToProjectForm
+          v-if="modal.currentModal === Modals.inviteUserToProject"
+          @update:form-state="updateInviteUserToProject"
+        />
+        <InviteUserToBoardForm
+          v-if="modal.currentModal === Modals.inviteUserToBoard"
+        />
       </template>
       <template #complete>
-        <CustomButton :style="{ width: '200px' }" @click="create">
+        <CustomButton @click="create">
           <CustomText :font-weight="600" font-size="16px" color="var(--white)">
             {{ buttonTextGenerate }}
           </CustomText>
@@ -36,10 +43,11 @@ import { useModalStore } from "@/modules/layouts/store/modal";
 import { useTasksStore } from "@/modules/tasks/store/tasks";
 import { useBoardsStore } from "@/modules/boards/store/boards";
 import { useProjectsStore } from "@/modules/projects/store/projects";
-import { createProject } from "@/modules/projects/services/projects.service";
+import {createProject, inviteUserToProject} from "@/modules/projects/services/projects.service";
 import { createBoard } from "@/modules/boards/services/boards.service";
 import { TaskStatus } from "@/types/enums";
 import { createTask } from "@/modules/tasks/services/tasks.service";
+import { createChat } from "@/modules/chats/services/chats.services";
 import ModalContainer from "@/modules/layouts/components/ModalContainer.vue";
 import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
@@ -47,7 +55,11 @@ import CreateProjectFrom from "@/modules/layouts/components/CreateProjectForm.vu
 import CreateBoardForm from "@/modules/layouts/components/CreateBoardForm.vue";
 import CreateTaskForm from "@/modules/layouts/components/CreateTaskForm.vue";
 import CreateChatForm from "@/modules/layouts/components/CreateChatForm.vue";
-import {createChat} from "@/modules/chats/services/chats.services";
+import InviteUserToProjectForm from "@/modules/layouts/components/InviteUserToProjectForm.vue";
+import InviteUserToBoardForm from "@/modules/layouts/components/InviteUserToBoardForm.vue";
+import {ref} from "@vue/runtime-core";
+import {User} from "@/modules/authorization/services/types";
+import {Nullable} from "@/types";
 
 const modal = useModalStore();
 const boards = useBoardsStore();
@@ -65,7 +77,7 @@ const createBoardFormState = reactive({
   name: "",
   description: "",
   projectId: route.params.id,
-  githubURL: ""
+  githubURL: "",
 });
 
 const createTaskFormState = reactive({
@@ -75,12 +87,12 @@ const createTaskFormState = reactive({
   boardId: route.params.id,
   creatorId: 1,
   workerId: 1,
-  branchName: ""
+  branchName: "",
 });
 
-const createChatFormState = reactive({
-  // firstUserId:
-})
+const inviteUserToProjectFormState = ref<string>("");
+
+const createChatFormState = reactive({});
 
 const buttonTextGenerate = computed(() => {
   switch (modal.currentModal) {
@@ -95,6 +107,12 @@ const buttonTextGenerate = computed(() => {
 
     case Modals.createChat:
       return "Создать чат";
+
+    case Modals.inviteUserToProject:
+      return "Добавить пользователя";
+
+    case Modals.inviteUserToBoard:
+      return "Добавить пользователя";
 
     default:
       return "Закрыть";
@@ -114,6 +132,12 @@ const headerTextGenerate = computed(() => {
 
     case Modals.createChat:
       return "Чат";
+
+    case Modals.inviteUserToProject:
+      return "Добавить пользователя на проект";
+
+    case Modals.inviteUserToBoard:
+      return "Добавить пользователя на доску";
 
     default:
       return "Закрыть";
@@ -138,6 +162,10 @@ const updateCreateTaskFormState = (formState: any) => {
   createTaskFormState.branchName = formState.branchName;
 };
 
+const updateInviteUserToProject = (formState: any) => {
+  inviteUserToProjectFormState.value = formState.value;
+}
+
 const createProjectFunc = async () => {
   try {
     await createProject(createProjectFormState);
@@ -160,9 +188,18 @@ const createBoardFunc = async () => {
 
 const createTaskFunc = async () => {
   try {
-    console.log(createTaskFormState);
     await createTask(createTaskFormState);
     await tasks.setTasks(+route.params.id);
+  } catch (e) {
+    // TODO: Добавить тосты по ошибкам
+    console.log(e);
+  }
+};
+
+const inviteUserToProjectFunc = async () => {
+  try {
+    const response = await inviteUserToProject(projects?.currentProject?.id, inviteUserToProjectFormState.value);
+
   } catch (e) {
     // TODO: Добавить тосты по ошибкам
     console.log(e);
@@ -173,10 +210,8 @@ const createChatFunc = async () => {
   try {
     await createChat(createChatFormState);
     await chats.addChat();
-  } catch (e) {
-
-  }
-}
+  } catch (e) {}
+};
 
 const create = async () => {
   switch (modal.currentModal) {
@@ -192,6 +227,11 @@ const create = async () => {
 
     case Modals.createTask:
       await createTaskFunc();
+      modal.closeModal();
+      break;
+
+    case Modals.inviteUserToProject:
+      await inviteUserToProjectFunc();
       modal.closeModal();
       break;
 

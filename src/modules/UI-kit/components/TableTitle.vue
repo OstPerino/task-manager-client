@@ -70,7 +70,7 @@ const onCreateClick = () => {
 };
 
 const onInviteClick = () => {
-  toast("Скоро будет!");
+  modal.setCurrentModal('inviteUserToProject');
 };
 </script>
 

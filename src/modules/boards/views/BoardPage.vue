@@ -32,16 +32,16 @@ const pushBack = () => {
 onMounted(async () => {
   await tasks.setTasks(+route.params.id);
   await boards.setCurrentBoard(+route.params.id);
-  console.log(route.params)
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .board-page {
   height: calc(100% - 44px);
 
   .title {
     margin-bottom: 1rem;
+    margin-top: 1rem;
   }
 }
 </style>
