@@ -17,14 +17,14 @@
           <CustomText
             :font-weight="600"
             font-size="14px"
-            color="var(--text-subtext)"
+            color="var(--black)"
           >
             {{ getLastMessage }}
           </CustomText>
         </div>
         <div class="last-date">
           <CustomText
-            color="var(--text-subtext)"
+            color="var(--black)"
             :font-weight="600"
             font-size="14px"
           >

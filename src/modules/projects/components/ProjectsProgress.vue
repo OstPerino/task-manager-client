@@ -33,7 +33,7 @@ const props = defineProps({
 
 .line {
   position: absolute;
-  width: 100%;
+  width: 50%;
   top: 0;
   left: 0;
   height: 1px;

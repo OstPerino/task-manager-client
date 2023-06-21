@@ -1,11 +1,12 @@
 import { defineStore } from "pinia";
 import { IChat, IMessage } from "@/modules/chats/types/types";
+import { Undefinable } from "@/types";
 import {
   createChat,
-  getChats, getCurrentChat,
+  getChats,
+  getCurrentChat,
   getCurrentMessages,
 } from "@/modules/chats/services/chats.services";
-import {Nullable, Undefinable} from "@/types";
 
 export const useChatsStore = defineStore("chats", {
   state: () => {
@@ -18,9 +19,7 @@ export const useChatsStore = defineStore("chats", {
   actions: {
     async createChat(body: any) {
       try {
-        console.log(body);
-        const response = await createChat(body);
-        console.log(response);
+        await createChat(body);
       } catch (e) {
         console.log(e);
       }
@@ -55,4 +54,3 @@ export const useChatsStore = defineStore("chats", {
     },
   },
 });
-

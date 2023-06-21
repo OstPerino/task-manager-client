@@ -6,6 +6,7 @@
       :chat="chat"
       @click="chatClickHandler"
     />
+    <EmptyChats v-if="!chats.chats.length"/>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import { useRouter } from "vue-router";
 import { useChatsStore } from "@/modules/chats/store/chats";
 import ChatsItem from "@/modules/chats/components/ChatsItem.vue";
 import ScrollChooseUser from "@/modules/chats/components/ScrollChooseUser.vue";
+import EmptyChats from "@/modules/chats/components/EmptyChats.vue";
 
 const router = useRouter();
 const chats = useChatsStore();
@@ -25,7 +27,7 @@ const chatClickHandler = async (chatId: number) => {
 
 <style scoped lang="scss">
 .chats-list {
-  max-width: 628px;
+  width: 628px;
   background-color: var(--white);
   padding: 12px 0;
   border-radius: 12px;

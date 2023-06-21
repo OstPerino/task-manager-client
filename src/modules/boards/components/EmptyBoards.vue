@@ -21,7 +21,7 @@
 
 <style scoped lang="scss">
 .empty-boards {
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   padding: 3rem;
   text-align: center;
   background-color: var(--white);

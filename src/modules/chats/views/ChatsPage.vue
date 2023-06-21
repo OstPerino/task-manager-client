@@ -10,6 +10,7 @@ import { onMounted } from "vue";
 import { useChatsStore } from "@/modules/chats/store/chats";
 import ChatsList from "@/modules/chats/components/ChatsList.vue";
 import ChatsActionsBar from "@/modules/chats/components/ChatsActionsBar.vue";
+import EmptyChats from "@/modules/chats/components/EmptyChats.vue";
 
 const chats = useChatsStore();
 

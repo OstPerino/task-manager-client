@@ -12,7 +12,7 @@
       </div>
       <div class="status">
         <ProjectsDots />
-        <ProjectsStatus status="Не начато" class="status-component" />
+        <ProjectsStatus status="В работе" class="status-component" />
       </div>
     </div>
   </li>
