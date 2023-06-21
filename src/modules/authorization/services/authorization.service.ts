@@ -2,9 +2,9 @@ import $api from "@/api";
 import endPoints from "@/modules/authorization/services/authorization.end-points";
 import {
   AuthorizationData,
-  RegistrationData, User,
+  RegistrationData,
+  User,
 } from "@/modules/authorization/services/types";
-import {AxiosResponse} from "axios";
 
 export async function login(data: AuthorizationData) {
   return $api.post(endPoints.login, data);

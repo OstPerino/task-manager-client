@@ -11,9 +11,13 @@ export const useTasksStore = defineStore("tasks", {
       notStarted: [],
       active: [],
       done: [],
+      currentTask: {},
     };
   },
   actions: {
+    setCurrentTask() {
+
+    },
     async setTasks(boardId: number) {
       try {
         const response = await getTasks(boardId);

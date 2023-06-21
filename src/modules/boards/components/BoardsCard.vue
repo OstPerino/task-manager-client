@@ -16,11 +16,11 @@
       </div>
     </div>
     <div class="middle">
-      <!--   TODO: Add in status how much tasks are complete   -->
-      <ProjectsStatus status="Выполнено" class="status" />
+      <!--   TODO: Add in status how much tasks are completed   -->
+      <ProjectsStatus status="В работе" class="status" />
     </div>
     <div class="bottom">
-      <ProjectsProgress width="100" />
+      <ProjectsProgress width="50" />
     </div>
   </li>
 </template>

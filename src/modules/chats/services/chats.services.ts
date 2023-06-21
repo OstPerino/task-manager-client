@@ -1,9 +1,8 @@
 import $api from "@/api";
 import chatsEndPoints from "@/modules/chats/services/chats.end-points";
-import {IChat, IMessage} from "@/modules/chats/types/types";
 
 export async function createChat(body: any) {
-  return $api.post(`${chatsEndPoints.chats}`);
+  return $api.post(`${chatsEndPoints.chats}`, body);
 }
 
 export async function getChats() {

@@ -12,10 +12,9 @@
       </div>
       <div class="status">
         <ProjectsDots />
-        <ProjectsStatus status="Выполнено" class="status-component" />
+        <ProjectsStatus status="В работе" class="status-component" />
       </div>
     </div>
-<!--    <ProjectsProgress width="100" />-->
   </li>
 </template>
 

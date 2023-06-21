@@ -14,3 +14,7 @@ export async function createProject(data: any) {
 export async function getCurrentProject(projectId: number) {
   return $api.get(`${endPoints.currentProject}/${projectId}`);
 }
+
+export async function inviteUserToProject(projectId: number, email: string) {
+  return $api.post("/projects/invite", {email, projectId})
+}
