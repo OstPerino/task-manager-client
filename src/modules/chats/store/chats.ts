@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { IChat, IMessage } from "@/modules/chats/types/types";
 import {
+  createChat,
   getChats, getCurrentChat,
   getCurrentMessages,
 } from "@/modules/chats/services/chats.services";
@@ -15,6 +16,15 @@ export const useChatsStore = defineStore("chats", {
     };
   },
   actions: {
+    async createChat(body: any) {
+      try {
+        console.log(body);
+        const response = await createChat(body);
+        console.log(response);
+      } catch (e) {
+        console.log(e);
+      }
+    },
     async setChats() {
       try {
         const response = await getChats();

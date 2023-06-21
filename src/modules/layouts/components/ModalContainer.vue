@@ -35,8 +35,8 @@ const closeModalContainer = () => {
 
 <style scoped lang="scss">
 .modal-container {
-  min-width: 628px;
-  min-height: 467px;
+  min-width: 700px;
+  min-height: 500px;
   background-color: var(--white);
   padding: 1.5rem;
   border-radius: 12px;

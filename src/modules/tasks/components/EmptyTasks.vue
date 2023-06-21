@@ -1,14 +1,14 @@
 <template>
-  <div class="empty-boards">
+  <div class="empty-tasks">
     <div class="content">
       <div class="title">
         <span class="text">
-          У вас еще нет досок
+          На данной доске пока нет задач
         </span>
       </div>
       <div class="subtitle">
         <span class="text">
-          Но вы можете создать новую
+          Вы можете создать новую задачу
         </span>
       </div>
     </div>
@@ -16,11 +16,11 @@
 </template>
 
 <script setup lang="ts">
-//TODO: This component
 </script>
 
 <style scoped lang="scss">
-.empty-boards {
+.empty-tasks {
+  width: 987px;
   margin-top: 1.5rem;
   padding: 3rem;
   text-align: center;

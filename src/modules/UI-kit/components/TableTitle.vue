@@ -1,5 +1,5 @@
 <template>
-  <div class="table-title">
+  <div class="table-title" :class="setFixedWidth">
     <div class="left">
       <IconButton @click="props.pushBack">
         <img src="@/modules/UI-kit/images/back-icon.svg" alt="arrow" />
@@ -41,6 +41,7 @@ import { useModalStore } from "@/modules/layouts/store/modal";
 import { toast } from "vue3-toastify";
 import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import IconButton from "@/modules/UI-kit/components/IconButton.vue";
+import {computed} from "vue";
 
 const modal = useModalStore();
 
@@ -63,7 +64,17 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  fixedWidth: {
+    type: Boolean,
+    default: false
+  }
 });
+
+const setFixedWidth = computed(() => {
+  if (props.fixedWidth) {
+    return 'fixed-width';
+  }
+})
 
 const onCreateClick = () => {
   modal.setCurrentModal(props.createType);
@@ -75,13 +86,17 @@ const onInviteClick = () => {
 </script>
 
 <style scoped lang="scss">
+.fixed-width {
+  width: 987px;
+}
+
 .table-title {
   padding: 13px 0;
   background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 987px;
+  //width: 987px;
   border-radius: 12px;
 
   .left {

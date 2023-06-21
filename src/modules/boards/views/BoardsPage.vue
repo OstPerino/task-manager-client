@@ -8,6 +8,7 @@
       class="title"
     />
     <BoardsGrid :boards="store.boards" />
+    <EmptyBoards v-if="!store.boards.length" />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import { onMounted } from "vue";
 import TableTitle from "@/modules/UI-kit/components/TableTitle.vue";
 import { useProjectsStore } from "@/modules/projects/store/projects";
 import {Modals} from "@/modules/layouts/types/modal.enum";
+import EmptyBoards from "@/modules/boards/components/EmptyBoards.vue";
 
 const store = useBoardsStore();
 const projects = useProjectsStore();
@@ -36,6 +38,10 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
+.boards-page {
+  padding-right: 1rem;
+}
+
 .title {
   margin-bottom: 1rem;
 }

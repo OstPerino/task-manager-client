@@ -56,9 +56,10 @@ watch(
 
 onMounted(async () => {
   try {
+    console.log(boards?.currentBoard?.githubURL);
     const response = await getBranches(boards?.currentBoard?.githubURL);
+    console.log(response);
     options.value = response?.data;
-    console.log(options.value);
   } catch (e) {
     console.log(e);
   }

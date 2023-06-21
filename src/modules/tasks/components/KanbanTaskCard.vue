@@ -25,7 +25,8 @@
       </div>
     </div>
     <div class="bottom">
-      <ProjectsStatus :status="card.branchName"/>
+<!--      <ProjectsStatus :status="card.branchName"/>-->
+      <BranchName :branch-name="card.branchName"/>
     </div>
     <!--  TODO: Add opening popup with information about task and adding information  -->
     <!--  TODO: Delete button   -->
@@ -37,6 +38,7 @@ import CustomText from "@/modules/UI-kit/components/CustomText.vue";
 import ProjectsStatus from "@/modules/projects/components/ProjectsStatus.vue";
 import CustomButton from "@/modules/UI-kit/components/CustomButton.vue";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import BranchName from "@/modules/tasks/components/BranchName.vue";
 
 const props = defineProps(["card"]);
 </script>
